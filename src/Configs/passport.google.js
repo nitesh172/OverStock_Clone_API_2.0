@@ -1,7 +1,7 @@
 const GoogleStrategy = require("passport-google-oauth2").Strategy
 const passport = require("passport")
 require("dotenv").config()
-const { newToken } = require("../controllers/auth.controller")
+const { newToken } = require("../Controllers/auth.controller")
 // const FacebookStrategy = require("passport-facebook").Strategy;
 const User = require("../Models/user.model")
 const { v4: uuidv4 } = require("uuid")
