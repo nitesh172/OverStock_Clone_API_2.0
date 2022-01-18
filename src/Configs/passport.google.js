@@ -9,8 +9,9 @@ const { v4: uuidv4 } = require("uuid")
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientID:
+        "280625541145-vm633gtro3p4ma9vta76je3gnmquk244.apps.googleusercontent.com",
+      clientSecret: "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",
       callbackURL: "https://overstock-2.herokuapp.com/auth/google/callback",
       passReqToCallback: true,
     },
