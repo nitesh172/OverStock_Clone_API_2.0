@@ -7,7 +7,7 @@ app.use(express.json())
 const userController = require("./Controllers/user.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
 
-// const passport = require("./Configs/passport.google")
+const passport = require("./Configs/passport.google")
 
 const User = require("./Models/user.model")
 
@@ -80,15 +80,15 @@ app.get("/confrimation/:token", async (req, res) => {
 //   res.send("failure")
 // })
 
-// app.get("/auth/facebook", passport.authenticate("facebook"))
+app.get("/auth/facebook", passport.authenticate("facebook"))
 
-// app.get(
-//   "/auth/facebook/callback",
-//   passport.authenticate("facebook", { failureRedirect: "/login" }),
-//   function (req, res) {
-//     // Successful authentication, redirect home.
-//     res.redirect("/")
-//   }
-// )
+app.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", { failureRedirect: "/login" }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/")
+  }
+)
 
 module.exports = app
