@@ -7,7 +7,7 @@ const userController = require("./Controllers/user.controller")
 app.use(express.json())
 
 const passport = require("./Configs/passport.google")
-const userContoller = require("./Controllers/user.controller")
+
 const {
   register,
   login,
@@ -18,7 +18,7 @@ const User = require("./Models/user.model")
 app.use(express.json())
 app.set("view engine", ejs)
 
-app.use("/users", userContoller)
+app.use("/users", userController)
 app.post("/register", register)
 app.post("/login", login)
 app.get("/confrimation/:token", async (req, res) => {
