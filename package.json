@@ -1,0 +1,23 @@
+{
+  "name": "fw13-cw-t-52-overstock_clone_api_2.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitesh172/FW13-CW-T-52-OverStock_Clone_API_2.0.git"
+  },
+  "author": "FW13-T-52",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitesh172/FW13-CW-T-52-OverStock_Clone_API_2.0/issues"
+  },
+  "homepage": "https://github.com/nitesh172/FW13-CW-T-52-OverStock_Clone_API_2.0#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7"
+  }
+}
