@@ -31,7 +31,7 @@ const register = async (req, res) => {
 
     const token = newToken(user)
 
-    const url = `http://localhost:2001/confrimation/${token}`
+    const url = `https://overstock-2.herokuapp.com/confrimation/${token}`
 
     const mailOptions = {
       from: "outstockclone@gmail.com", // sender address

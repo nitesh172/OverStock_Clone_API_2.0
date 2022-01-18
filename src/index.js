@@ -2,20 +2,15 @@ const express = require("express")
 const ejs = require("ejs")
 
 const app = express()
-const userController = require("./Controllers/user.controller")
-
 app.use(express.json())
+
+const userController = require("./Controllers/user.controller")
+const {register, login, verifyToken } = require("./Controllers/auth.controller")
 
 const passport = require("./Configs/passport.google")
 
-const {
-  register,
-  login,
-  verifyToken,
-} = require("./Controllers/auth.controller")
 const User = require("./Models/user.model")
 
-app.use(express.json())
 app.set("view engine", ejs)
 
 app.use("/users", userController)
