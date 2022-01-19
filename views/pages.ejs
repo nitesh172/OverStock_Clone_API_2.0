@@ -17,31 +17,6 @@
 </head>
     <h1>Pages Console</h1>
     <label for="">Page Name</label>
-    <form action="/pages/create" method="post">
-      <div>
-        <label for="pageName">Page Name</label>
-        <input type="text" value="" name="pageName" id="pageName" />
-      </div>
-      <div>
-        <label for="imgURL" id="imgUrlText">imgURL</label>
-        <input type="file" name="imgURl" id="imgURLPath">
-        <div>
-            <button onclick="uploadImg()">Upload Single</button>
-        </div>
-        <input type="text" value="" name="imgURL" id="imgURL" />
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="email" value="" name="email" id="email" />
-      </div>
-      <div>
-        <label for="age">Age</label>
-        <input type="number" value="" name="age" id="age" />
-      </div>
-      <div>
-        <input type="submit" value="Submit Button" name="submit" />
-      </div>
-    </form>
     <div>
         <div class="uploaddiv">
             <div>
@@ -58,33 +33,3 @@
 
 </body>
 </html>
-
-<script>
-    function uploadImg() {
-        const filepath = document.getElementById("filepath").value
-        const fieldName = document.getElementById("imgUrlText").value
-        var aws = require("aws-sdk")
-        var multer = require("multer")
-        var multerS3 = require("multer-s3")
-
-        var s3 = new aws.S3({
-            accessKeyId: "AKIAUWYRXQS3XITESVY4",
-            secretAccessKey: "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",
-        })
-
-        const upload = multer({
-        storage: multerS3({
-            s3: s3,
-            bucket: "overstock-clone",
-            acl: "public-read",
-            metadata: function (req, file, cb) {
-            console.log("here")
-            cb(null, { fieldName: fieldname })
-            },
-            key: function (req, file, cb) {
-            cb(null, Date.now() + "-" + file.originalname)
-            },
-        }),
-        })
-    }
-</script>
