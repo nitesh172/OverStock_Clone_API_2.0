@@ -24,7 +24,9 @@ app.use(express.urlencoded({extended: true}))
 app.use("/users", userController)
 app.post("/register", upload.single("profilePic"), register)
 app.post("/login", login)
-app.use("/pages", pageController)
+app.get("/pages", async (req, res)  => {
+  return res.render("pages")
+})
 app.get("/confrimation/:token", async (req, res) => {
   try {
     const user = await verifyToken(req.params.token)
