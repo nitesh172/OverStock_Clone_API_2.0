@@ -53,42 +53,42 @@ app.get("/confrimation/:token", async (req, res) => {
   }
 })
 
-// passport.serializeUser(function (user, done) {
-//   done(null, user)
-// })
+passport.serializeUser(function (user, done) {
+  done(null, user)
+})
 
-// passport.deserializeUser(function (user, done) {
-//   done(null, user)
-// })
-
-// app.get(
-//   "/auth/google",
-//   passport.authenticate("google", { scope: ["email", "profile"] })
-// )
-
-// app.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     failureRedirect: "/auth/google/failure",
-//   }),
-//   (req, res) => {
-//     res.status(201).send({ user: req.user?.user, token: req.user?.token })
-//   }
-// )
-
-// app.get("/auth/google/failure", (req, res) => {
-//   res.send("failure")
-// })
-
-app.get("/auth/facebook", passport.authenticate("facebook"))
+passport.deserializeUser(function (user, done) {
+  done(null, user)
+})
 
 app.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", { failureRedirect: "/login" }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/")
+  "/auth/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+)
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/auth/google/failure",
+  }),
+  (req, res) => {
+    res.status(201).send({ user: req.user?.user, token: req.user?.token })
   }
 )
+
+app.get("/auth/google/failure", (req, res) => {
+  res.send("failure")
+})
+
+// app.get("/auth/facebook", passport.authenticate("facebook"))
+
+// app.get(
+//   "/auth/facebook/callback",
+//   passport.authenticate("facebook", { failureRedirect: "/login" }),
+//   function (req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect("/")
+//   }
+// )
 
 module.exports = app
