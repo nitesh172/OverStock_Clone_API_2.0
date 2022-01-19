@@ -20,7 +20,7 @@
     <div>
         <div class="uploaddiv">
             <div>
-                <input type="file">
+                <input type="file" id="filepath">
             </div>
             <div>
                 <button onclick="uploadImg()">Upload Single</button>
@@ -36,6 +36,7 @@
 
 <script>
     function uploadImg() {
-        console.log("helello")
+        const filepath = document.getElementById("filepath").value
+        cosnole.log(filepath)
     }
 </script>
