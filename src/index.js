@@ -10,7 +10,6 @@ app.use(cors())
 
 const userController = require("./Controllers/user.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
-const pageController = require("./Controllers/page.controller")
 const upload = require("./Middlewares/multer")
 
 const passport = require("./Configs/passport.google")
@@ -25,7 +24,12 @@ app.use("/users", userController)
 app.post("/register", upload.single("profilePic"), register)
 app.post("/login", login)
 app.get("/pages", async (req, res)  => {
-  return res.render("pages")
+  try {
+    return res.render("pages")
+  } catch (error) {
+    console.log(error.message)
+    res.status(500).send(error.message)
+  }
 })
 app.get("/confrimation/:token", async (req, res) => {
   try {
