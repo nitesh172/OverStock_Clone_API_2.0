@@ -4,12 +4,12 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 
 const newToken = (user) => {
-  return jwt.sign({ user: user }, process.env.privateKey)
+  return jwt.sign({ user: user }, "gsfgsfgduskjghskjhgsduagseuiwahgwiesuytuiyshwtuwyuwhnfiow")
 }
 
 const verifyToken = (token) => {
     return new Promise((resolve, reject)=> {
-        jwt.verify(token, process.env.privateKey, function (err, decoded) {
+        jwt.verify(token, "gsfgsfgduskjghskjhgsduagseuiwahgwiesuytuiyshwtuwyuwhnfiow", function (err, decoded) {
            if(err) return reject(err)
            resolve(decoded)
         })
