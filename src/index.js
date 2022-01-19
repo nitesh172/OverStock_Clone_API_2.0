@@ -6,6 +6,7 @@ app.use(express.json())
 
 const userController = require("./Controllers/user.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
+const upload = require("./Middlewares/multer")
 
 const passport = require("./Configs/passport.google")
 
@@ -14,7 +15,7 @@ const User = require("./Models/user.model")
 app.set("view engine", ejs)
 
 app.use("/users", userController)
-app.post("/register", register)
+app.post("/register", upload.single("profilePic"), register)
 app.post("/login", login)
 app.get("/confrimation/:token", async (req, res) => {
   try {
