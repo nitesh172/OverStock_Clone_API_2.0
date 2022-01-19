@@ -14,6 +14,8 @@ const User = require("./Models/user.model")
 
 app.set("view engine", ejs)
 
+app.use(express.urlencoded({extended: true}))
+
 app.use("/users", userController)
 app.post("/register", upload.single("profilePic"), register)
 app.post("/login", login)
