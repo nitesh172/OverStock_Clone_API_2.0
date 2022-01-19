@@ -28,7 +28,7 @@ passport.use(
       }
 
       const token = newToken(user)
-
+      console.log({token, user})
       return done(null, { token, user })
     }
   )
