@@ -4,6 +4,10 @@ const ejs = require("ejs")
 const app = express()
 app.use(express.json())
 
+const cors = require("cors")
+
+app.use(cors())
+
 const userController = require("./Controllers/user.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
 const upload = require("./Middlewares/multer")
