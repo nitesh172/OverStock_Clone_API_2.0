@@ -17,7 +17,7 @@ module.exports = multer({
       cb(null, { fieldName: file.fieldname })
     },
     key: function (req, file, cb) {
-      console.log(req.file)
+      console.log(file)
       cb(null, Date.now() + "-" + file.originalname, req.file)
     },
   }),
