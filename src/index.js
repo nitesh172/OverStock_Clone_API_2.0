@@ -10,7 +10,6 @@ app.use(cors())
 
 const userController = require("./Controllers/user.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
-const pageController = require("./Controllers/page.controller")
 const upload = require("./Middlewares/multer")
 
 const passport = require("./Configs/passport.google")
@@ -34,7 +33,6 @@ app.get("/pages", async (req, res)  => {
   }
 })
 
-app.use("/pages/upload", pageController)
 
 app.get("/confrimation/:token", async (req, res) => {
   try {
