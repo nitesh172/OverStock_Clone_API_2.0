@@ -17,7 +17,7 @@ app.set("view engine", ejs)
 app.use(express.urlencoded({extended: true}))
 
 app.use("/users", userController)
-app.post("/register", upload.single("profilePic"), register)
+app.post("/register", upload.array("profilePic"), register)
 app.post("/login", login)
 app.get("/confrimation/:token", async (req, res) => {
   try {
