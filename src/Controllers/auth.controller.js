@@ -20,13 +20,14 @@ const transporter = require("../Configs/email")
 
 const register = async (req, res) => {
   try {
+    console.log(req.file)
     let user = await User.findOne({ email: req.body.email }).lean().exec()
 
     if (user) return res.status(401).send({ message: "User already Exists" })
 
     user = await User.create({
       ...req.body,
-      profilePic: req.file?.path,
+      profilePic: req.file?.location,
     })
 
     const token = newToken(user)
