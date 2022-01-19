@@ -36,9 +36,11 @@ module.exports = multer({
     bucket: "overstock-clone",
     acl: "public-read",
     metadata: function (req, file, cb) {
+        console.log("here")
       cb(null, { fieldName: file.fieldname })
     },
     key: function (req, file, cb) {
+        console.log("here2")
       cb(null, Date.now() + "-" + file.originalname)
     },
   }),
