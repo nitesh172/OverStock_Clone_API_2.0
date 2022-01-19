@@ -25,7 +25,7 @@ app.post("/register", upload.single("profilePic"), register)
 app.post("/login", login)
 app.get("/pages", async (req, res)  => {
   try {
-    return res.render("pages")
+    return res.status(200).render("pages.ejs")
   } catch (error) {
     console.log(error.message)
     res.status(500).send(error.message)
