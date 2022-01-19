@@ -7,28 +7,28 @@ var s3 = new aws.S3({
   secretAccessKey: "QTSzJMBYa2WGW3AipJO7SyfXiFyVhhDJxceJUp2r",
 })
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../uploads"))
-  },
-  filename: function (req, file, cb) {
-    const filename = Date.now() + "-" + file.originalname
-    cb(null, filename)
-  },
-})
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, path.join(__dirname, "../uploads"))
+//   },
+//   filename: function (req, file, cb) {
+//     const filename = Date.now() + "-" + file.originalname
+//     cb(null, filename)
+//   },
+// })
 
-function fileFilter(req, file, cb) {
-  if (file.mimeType === "image/png" || file.mimeType === "image/jpeg") {
-    cb(null, true)
-  } else {
-    cb(null, false)
-  }
-}
+// function fileFilter(req, file, cb) {
+//   if (file.mimeType === "image/png" || file.mimeType === "image/jpeg") {
+//     cb(null, true)
+//   } else {
+//     cb(null, false)
+//   }
+// }
 
-const upload = multer({
-  storage: storage,
-  fileFilter: fileFilter,
-})
+// const upload = multer({
+//   storage: storage,
+//   fileFilter: fileFilter,
+// })
 
 module.exports = multer({
   storage: multerS3({
