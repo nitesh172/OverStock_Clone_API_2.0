@@ -24,6 +24,17 @@ app.use("/users", userController)
 app.post("/register", upload.single("profilePic"), register)
 app.post("/login", login)
 
+app.post("/pages/create", async (req, res) => {
+  try {
+    const page = await Page.create(req.body)
+
+    return res.status(201).send(page)
+  } catch (error) {
+    console.log(error.message)
+    res.status(500).send(error.message)
+  }
+})
+
 app.get("/pages", async (req, res)  => {
   try {
     return res.status(200).render("pages.ejs")
@@ -32,7 +43,6 @@ app.get("/pages", async (req, res)  => {
     res.status(500).send(error.message)
   }
 })
-
 
 app.get("/confrimation/:token", async (req, res) => {
   try {
