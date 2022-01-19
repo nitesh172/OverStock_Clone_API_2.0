@@ -34,19 +34,18 @@ passport.use(
   )
 )
 
-// passport.use(
-//   new FacebookStrategy(
-//     {
-//       clientID: process.env.FACEBOOK_APP_ID,
-//       clientSecret: process.env.FACEBOOK_APP_SECRET,
-//       callbackURL:
-//         "https://overstock-2.herokuapp.com/auth/facebook/callback",
-//       profileFields: ["id", "displayName", "photos", "email"],
-//     },
-//     function (accessToken, refreshToken, profile, cb) {
-//       return cb(err, "rahul")
-//     }
-//   )
-// )
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: "1427100647747999",
+      clientSecret: "cfa10310de6c77244bad91dad542a5c7",
+      callbackURL: "https://overstock-2.herokuapp.com/auth/facebook/callback",
+      profileFields: ["id", "displayName", "photos", "email"],
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      return cb(err, "rahul")
+    }
+  )
+)
 
 module.exports = passport
