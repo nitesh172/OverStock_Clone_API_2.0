@@ -37,8 +37,8 @@ app.post("/pages/create", async (req, res) => {
 
 app.get("/admin", async (req, res)  => {
   try {
-    let uploadPic
-    return res.status(200).render("pages.ejs", uploadPic)
+    let uploadPic = undefined
+    return res.status(200).render("pages.ejs", { uploadPic: uploadPic })
   } catch (error) {
     console.log(error.message)
     res.status(500).send(error.message)
@@ -125,7 +125,7 @@ const Upload = require("./Models/upload.model")
 app.post("/uploaded", uploadUser("uploadPic"), async (req,res) => {
   try{
     let uploadPic = await Upload.create({uploadPic: req.file?.uploadPic})
-    return res.status(201).render("pages.ejs",uploadPic);
+    return res.status(201).render("pages.ejs", { uploadPic: uploadPic })
   } catch(err){
     return res.status.send(err.message);
   }
