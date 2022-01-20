@@ -2,7 +2,7 @@ const { Router } = require("express")
 const crudController = require("./crud.controller")
 const Page = require("../Models/page.model")
 const router = Router()
-const { fieldWise } = require("./Middlewares/multer")
+const { fieldWise } = require("../Middlewares/multer")
 
 router.post("/create", fieldWise(), async (req, res) => {
   try {
