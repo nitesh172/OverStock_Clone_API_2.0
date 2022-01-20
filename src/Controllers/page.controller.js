@@ -4,29 +4,42 @@ const Page = require("../Models/page.model")
 const router = Router()
 const { fieldWise } = require("../Middlewares/multer")
 
-function CreateObject(name,imgUrl){
-    return {
-      name,
-      imgUrl
-    }
+function CreateObject(name, imgUrl) {
+  return {
+    name,
+    imgUrl,
+  }
 }
 
-router.post("/create", fieldWise(), async (req, res) => {
+const arr = []
+
+for (let i = 1; i <= 12; i++) {
+  arr.push({ name: `c${i}img` })
+  arr.push({ name: `c${i}nimg` })
+}
+
+arr.push({ name: "imgUrl" })
+arr.push({ name: "img1" })
+arr.push({ name: "img2" })
+arr.push({ name: "imbImg1" })
+arr.push({ name: "imbImg2" })
+
+router.post("/create", fieldWise(arr), async (req, res) => {
   try {
     const imgFolder = req.files
-    let category = [];
-    let moreCategory = [];
-    for(let i=1; i<=12; i++){
-      let a = "req.body.c" + i;
-      let b = "imgFolder.c" + i + "img[0].location";
-      let c = "req.body.c" + i + "n";
-      let d = "imgFolder.c" + i + "nimg[0].location";
-      a = eval(a);
-      b = eval(b);
-      c = eval(c);
-      d = eval(d);
-      category.push(CreateObject(a,b));
-      moreCategory.push(CreateObject(c,d));
+    let category = []
+    let moreCategory = []
+    for (let i = 1; i <= 12; i++) {
+      let a = "req.body.c" + i
+      let b = "imgFolder.c" + i + "img[0].location"
+      let c = "req.body.c" + i + "n"
+      let d = "imgFolder.c" + i + "nimg[0].location"
+      a = eval(a)
+      b = eval(b)
+      c = eval(c)
+      d = eval(d)
+      category.push(CreateObject(a, b))
+      moreCategory.push(CreateObject(c, d))
     }
     // const category = [
     //   CreateObject(req.body.c1,imgFolder.c1img[0].location),

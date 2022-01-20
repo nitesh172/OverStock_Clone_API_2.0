@@ -58,39 +58,9 @@ const uploadUsers = (fieldName) => {
   };
 };
 
-const fieldWise = () => {
+const fieldWise = (fieldNames) => {
   return (req, res, next) => {
-    const createUserFun = upload.fields([
-      { name: "imgUrl" },
-      { name: "img1" },
-      { name: "img2" },
-      { name: "c1img" },
-      { name: "c2img" },
-      { name: "c3img" },
-      { name: "c4img" },
-      { name: "c5img" },
-      { name: "c6img" },
-      { name: "c7img" },
-      { name: "c8img" },
-      { name: "c9img" },
-      { name: "c10img" },
-      { name: "c11img" },
-      { name: "c12img" },
-      { name: "imbImg1" },
-      { name: "imbImg2" },
-      { name: "c1nimg" },
-      { name: "c2nimg" },
-      { name: "c3nimg" },
-      { name: "c4nimg" },
-      { name: "c5nimg" },
-      { name: "c6nimg" },
-      { name: "c7nimg" },
-      { name: "c8nimg" },
-      { name: "c9nimg" },
-      { name: "c10nimg" },
-      { name: "c11nimg" },
-      { name: "c12nimg" },
-    ])
+    const createUserFun = upload.fields(fieldNames)
 
     createUserFun(req, res, function (err) {
       if (err instanceof multer.MulterError) {
