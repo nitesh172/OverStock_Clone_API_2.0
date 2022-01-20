@@ -13,7 +13,6 @@ const upload = multer({
     bucket: "overstock-clone",
     acl: "public-read",
     metadata: function (req, file, cb) {
-      console.log("here")
       cb(null, { fieldName: file.fieldname })
     },
     key: function (req, file, cb) {

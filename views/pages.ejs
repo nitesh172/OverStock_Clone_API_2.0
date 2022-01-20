@@ -6,34 +6,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .uploaddiv {
-        display: flex;
-        justify-content: space-between;
-        width: 60%;
-        margin: auto;
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+      div {
+        width: 13%;
+      }
+      input,
+      button {
+        width: 500px;
+        height: 30px;
+        margin: 10px 0;
       }
     </style>
   </head>
   <body>
-    <h1>Pages Console</h1>
+    <h1>Add Pages</h1>
     <form
-      action="/upload"
+      action="https://overstock-2.herokuapp.com/pages/create"
       enctype="multipart/form-data"
       method="post"
     >
-      <div class="uploaddiv">
-        <div>
-          <label for="UploadPic">Upload Picture</label>
-          <input type="file" id="uploadPic" name="uploadPic" multiple required/>
-        </div>
-        <div>
-          <input type="submit" value="upload" />
-        </div>
-        <div>
-          <textarea name="" id="" cols="30" rows="10">     
-        </textarea>
-        </div>
-      </div>
+      <label for="">pageName</label>
+      <input type="text" placeholder="pageName" name="pageName" /> <br />
+
+      <label for="">imgURL</label>
+      <input type="file" name="imgUrl" /> <br />
+
+      <label for="">img1</label>
+      <input type="file" name="img1" /> <br />
+
+      <label for="">img2</label>
+      <input type="file" name="img2" /> <br />
+
+      <label for="">text1</label>
+      <input type="text" placeholder="text1" name="text1" /> <br />
+
+      <label for="">text2</label>
+      <input type="text" placeholder="text1" name="text2" /> <br />
+
+      <label for="">text3</label>
+      <input type="text" placeholder="text1" name="text3" /> <br />
+
+      <label for="">text4</label>
+      <input type="text" placeholder="text1" name="text4" /> <br />
+
+      <label for="">c1</label>
+      <input type="text" placeholder="c1" name="c1" /> <br />
+
+      <label for="">c1img</label>
+      <input type="file" name="c1img" /> <br />
+
+      <label for="">c2</label>
+      <input type="text" placeholder="c2" name="c2" /> <br>
+
+      <label for="">c2img</label>
+      <input type="file" name="c2img" /> <br />
+
+      <label for="">c3</label>
+      <input type="text" placeholder="c3" name="c3" /> <br>
+
+      <label for="">c3img</label>
+      <input type="file" name="c3img" /> <br />
+
+      <label for="">c4</label>
+      <input type="text" placeholder="c4" name="c4" /> <br> 
+
+      <label for="">c4img</label>
+      <input type="file" name="c4img" /> <br />
+
+      <label for="">c5</label>
+      <input type="text" placeholder="c5" name="c5" /> <br>
+
+      <label for="">c5img</label>
+      <input type="file" name="c5img" /> <br /> 
+      
+      <label for="">c6</label>
+      <input type="text" placeholder="c6" name="c6" /> <br> 
+
+      <label for="">c6img</label>
+      <input type="file" name="c6img" /> <br />
+
+      <label for="">c7</label>
+      <input type="text" placeholder="c7" name="c7" /> <br>
+
+      <label for="">c7img</label>
+      <input type="file" name="c7img" /> <br />
+
+      <label for="">c8</label>
+      <input type="text" placeholder="c8" name="c8" /> <br>
+
+      <label for="">c8img</label>
+      <input type="file" name="c8img" /> <br />
+
+      <label for="">c9</label>
+      <input type="text" placeholder="c9" name="c9" /> <br>
+
+      <label for="">c9img</label>
+      <input type="file" name="c9img" /> <br />
+
+      <label for="">c10</label>
+      <input type="text" placeholder="c10" name="c10" /> <br>
+
+      <label for="">c10img</label>
+      <input type="file" name="c10img" /> <br />
+
+      <label for="">c11</label>
+      <input type="text" placeholder="c11" name="c11" /> <br>
+
+      <label for="">c11img</label>
+      <input type="file" name="c11img" /> <br />
+
+      <label for="">c12</label>
+      <input type="text" placeholder="c12" name="c12" /> <br>
+
+      <label for="">c12img</label>
+      <input type="file" name="c12img" /> <br />
+
+      <label for="">imgUrl</label>
+      <input type="file" name="imbImg1" /> <br />
+
+      <label for="">title</label>
+      <input type="text" placeholder="title" name="imgbt1" /> <br>
+
+      <label for="">desc</label>
+      <input type="text" placeholder="desc" name="desc1" /> <br>
+
+      <label for="">imgUrl2</label>
+      <input type="file" name="imbImg2" /> <br />
+
+      <label for="">title2</label>
+      <input type="text" placeholder="title" name="imgbt2" /> <br>
+
+      <label for="">desc3</label>
+      <input type="text" placeholder="desc" name="desc2" /> <br>
+
+       <label for="">c1n</label>
+      <input type="text" placeholder="c1n" name="c1n" /> <br />
+
+      <label for="">c1nimg</label>
+      <input type="file" name="c1nimg" /> <br />
+
+      <label for="">c2n</label>
+      <input type="text" placeholder="c2n" name="c2n" /> <br>
+
+      <label for="">c2nimg</label>
+      <input type="file" name="c2nimg" /> <br />
+
+      <label for="">c3n</label>
+      <input type="text" placeholder="c3n" name="c3n" /> <br>
+
+      <label for="">c3nimg</label>
+      <input type="file" name="c3nimg" /> <br />
+
+      <label for="">c4n</label>
+      <input type="text" placeholder="c4n" name="c4n" /> <br> 
+
+      <label for="">c4nimg</label>
+      <input type="file" name="c4nimg" /> <br />
+
+      <label for="">c5n</label>
+      <input type="text" placeholder="c5n" name="c5n" /> <br>
+
+      <label for="">c5nimg</label>
+      <input type="file" name="c5nimg" /> <br /> 
+      
+      <label for="">c6n</label>
+      <input type="text" placeholder="c6n" name="c6n" /> <br> 
+
+      <label for="">c6nimg</label>
+      <input type="file" name="c6nimg" /> <br />
+
+      <label for="">c7n</label>
+      <input type="text" placeholder="c7n" name="c7n" /> <br>
+
+      <label for="">c7nimg</label>
+      <input type="file" name="c7nimg" /> <br />
+
+      <label for="">c8n</label>
+      <input type="text" placeholder="c8n" name="c8n" /> <br>
+
+      <label for="">c8nimg</label>
+      <input type="file" name="c8nimg" /> <br />
+
+      <label for="">c9n</label>
+      <input type="text" placeholder="c9n" name="c9n" /> <br>
+
+      <label for="">c9nimg</label>
+      <input type="file" name="c9nimg" /> <br />
+
+      <label for="">c10n</label>
+      <input type="text" placeholder="c10n" name="c10n" /> <br>
+
+      <label for="">c10nimg</label>
+      <input type="file" name="c10nimg" /> <br />
+
+      <label for="">c11n</label>
+      <input type="text" placeholder="c11n" name="c11n" /> <br>
+
+      <label for="">c11nimg</label>
+      <input type="file" name="c11nimg" /> <br />
+
+      <label for="">c12n</label>
+      <input type="text" placeholder="c12n" name="c12n" /> <br>
+
+      <label for="">c12nimg</label>
+      <input type="file" name="c12nimg" /> <br />
+      <input type="submit" value="submit">
     </form>
   </body>
 </html>
