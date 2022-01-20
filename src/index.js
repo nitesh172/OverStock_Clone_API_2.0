@@ -123,7 +123,7 @@ app.get(
 app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
   try {
     const data = req.files
-    res.send({items: data})
+    res.render("data.ejs",{items: data.items})
   } catch (error) {
     res.send(error.message)
     console.log(error.message)
