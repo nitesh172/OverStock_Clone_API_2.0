@@ -25,7 +25,7 @@ app.use(express.urlencoded({extended: true}))
 app.use("/users", userController)
 app.post("/register", uploadUser("profilePic"), register)
 app.post("/login", login)
-app.post("/pages", pageController)
+app.use("/pages", pageController)
 app.use("/products", productController)
 app.get("/admin", async (req, res)  => {
   try {
