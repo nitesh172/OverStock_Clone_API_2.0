@@ -9,7 +9,7 @@ app.use(cors())
 
 const userController = require("./Controllers/user.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
-const {uploadUser, uploadUsers} = require("./Middlewares/multer")
+const {uploadUser, uploadUsers, fieldWise} = require("./Middlewares/multer")
 
 const passport = require("./Configs/passport.google")
 
@@ -118,10 +118,10 @@ app.get(
   }
 )
 
-app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
+app.post("/upload", filewise(), (req, res) => {
   try {
     const items = req.files
-    res.render("imgUrl", {items: items})
+    res.send(items)
   } catch (error) {
     res.send(error.message)
     console.log(error.message)

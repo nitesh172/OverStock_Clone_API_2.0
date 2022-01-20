@@ -59,4 +59,22 @@ const uploadUsers = (fieldName) => {
   };
 };
 
-module.exports = {uploadUser,uploadUsers};
+const fieldWise = () => {
+  return (req, res, next) => {
+    const createUserFun = upload.fields([{name: "file1"}, {name: "file2"}])
+
+    createUserFun(req, res, function (err) {
+      if (err instanceof multer.MulterError) {
+        // A Multer error occurred when uploading.
+        res.send({ message: err.message, errorType: "MulterError" })
+      } else if (err) {
+        // An unknown error occurred when uploading.
+        res.send({ message: err.message, errorType: "NormalError" })
+      }
+      // Everything went fine.
+      next()
+    })
+  }
+}
+
+module.exports = {uploadUser,uploadUsers, fieldWise};
