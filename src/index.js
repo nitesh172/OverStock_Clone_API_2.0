@@ -119,14 +119,8 @@ app.get(
   }
 )
 
-app.post("/uploaded", uploadUser("uploadPic"), async (req,res) => {
-  try{
-     console.log(JSON.stringify(req.file))
-     var response = req.file.path
-     return res.send(response)
-  } catch(err){
-    return res.status.send(err.message);
-  }
+app.post("/upload", async (req, res, next) => {
+  uploadUser("uploadPic")
 })
 
 module.exports = app
