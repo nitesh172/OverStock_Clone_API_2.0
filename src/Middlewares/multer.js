@@ -62,7 +62,7 @@ const uploadUsers = (fieldName) => {
 const fieldWise = () => {
   return (req, res, next) => {
     const createUserFun = upload.fields([
-      { name: "imgURL" },
+      { name: "imgUrL" },
       { name: "img1" },
       { name: "img2" },
       { name: "c1img" },
