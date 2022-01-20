@@ -1,5 +1,4 @@
 const express = require("express")
-const ejs = require("ejs")
 
 const app = express()
 app.use(express.json())
@@ -10,14 +9,13 @@ app.use(cors())
 
 const userController = require("./Controllers/user.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
-const {uploadUser} = require("./Middlewares/multer")
+const {uploadUser, uploadUsers} = require("./Middlewares/multer")
 
 const passport = require("./Configs/passport.google")
 
 const User = require("./Models/user.model")
-const { rmSync } = require("fs")
 
-app.set("view engine", ejs)
+app.set("view engine", "ejs")
 
 app.use(express.urlencoded({extended: true}))
 
@@ -120,9 +118,10 @@ app.get(
   }
 )
 
-app.post("/upload", uploadUser("uploadPic"), (req, res) => {
+app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
   try {
-    res.send({message: "hello namsate", data: req.file?.location})
+    const items = req.files
+    res.render("imgUrl", {items: items})
   } catch (error) {
     res.send(error.message)
     console.log(error.message)
