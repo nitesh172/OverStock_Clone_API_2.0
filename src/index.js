@@ -123,7 +123,7 @@ app.get(
 app.post("/upload", (req, res) => {
   try {
     console.log("hello google", req.file)
-    res.send({ message: "hello google" }, req.file)
+    res.send({message: "hello namsate", data: req.file})
   } catch (error) {
     res.send(error.message)
     console.log(error.message)
