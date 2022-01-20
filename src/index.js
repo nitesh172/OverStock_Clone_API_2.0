@@ -8,6 +8,7 @@ const cors = require("cors")
 app.use(cors())
 
 const userController = require("./Controllers/user.controller")
+const pageController = require("./Controllers/page.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
 const {uploadUser} = require("./Middlewares/multer")
 
