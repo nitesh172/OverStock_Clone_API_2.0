@@ -121,7 +121,7 @@ app.get(
 )
 
 app.post("/upload", async (req, res, next) => {
-  console.log(req.body)
+  console.log("hello google", req)
   res.send(req.body)  
 })
 
