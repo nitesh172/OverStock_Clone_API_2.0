@@ -5,7 +5,7 @@ const pageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  imgURL: {
+  imgUrl: {
     type: String,
     required: true,
   },
@@ -33,62 +33,46 @@ const pageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  catergory: [
-    {
-      name: {
-        type: String,
-        required: true,
-      },
-      imgUrl: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  category: {
+    type: Array,
+    required: true,
+  },
   imb1: {
     type: Object,
     required: true,
-    imgUrl: { 
-      type: String, 
-      required: true 
+    imgUrl: {
+      type: String,
+      required: true,
     },
-    title: { 
-      type: String, 
-      required: true 
+    title: {
+      type: String,
+      required: true,
     },
-    desc: { 
-      type: String, 
-      required: true 
+    desc: {
+      type: String,
+      required: true,
     },
   },
   imb2: {
     type: Object,
     required: true,
-    imgUrl: { 
-      type: String, 
-      required: true 
+    imgUrl: {
+      type: String,
+      required: true,
     },
-    title: { 
-      type: String, 
-      required: true 
+    title: {
+      type: String,
+      required: true,
     },
-    desc: { 
-      type: String, 
-      required: true 
+    desc: {
+      type: String,
+      required: true,
     },
   },
-  moreCategory: [
-    {
-      name: {
-        type: String,
-        required: true,
-      },
-      imgUrl: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  moreCategory: {
+    type: Array,
+    required: true,
+  },
 })
 
 // we will create a new collection

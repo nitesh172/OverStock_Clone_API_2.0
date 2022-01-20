@@ -8,8 +8,10 @@ const cors = require("cors")
 app.use(cors())
 
 const userController = require("./Controllers/user.controller")
+const pageController = require("./Controllers/page.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
-const {uploadUser, uploadUsers} = require("./Middlewares/multer")
+const {uploadUser} = require("./Middlewares/multer")
+
 
 const passport = require("./Configs/passport.google")
 
@@ -22,18 +24,7 @@ app.use(express.urlencoded({extended: true}))
 app.use("/users", userController)
 app.post("/register", uploadUser("profilePic"), register)
 app.post("/login", login)
-
-app.post("/pages/create", async (req, res) => {
-  try {
-    const page = await Page.create(req.body)
-
-    return res.status(201).send(page)
-  } catch (error) {
-    console.log(error.message)
-    res.status(500).send(error.message)
-  }
-})
-
+app.post("/pages", pageController)
 app.get("/admin", async (req, res)  => {
   try {
     return res.status(200).render("pages.ejs")
@@ -42,7 +33,6 @@ app.get("/admin", async (req, res)  => {
     res.status(500).send(error.message)
   }
 })
-
 app.get("/confrimation/:token", async (req, res) => {
   try {
     const user = await verifyToken(req.params.token)
@@ -117,15 +107,5 @@ app.get(
     res.redirect("/")
   }
 )
-
-app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
-  try {
-    const items = req.files
-    res.render("imgUrl", {items: items})
-  } catch (error) {
-    res.send(error.message)
-    console.log(error.message)
-  }  
-})
 
 module.exports = app
