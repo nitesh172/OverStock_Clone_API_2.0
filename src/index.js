@@ -26,127 +26,126 @@ app.post("/login", login)
 
 app.post("/pages/create", fieldWise(), async (req, res) => {
   try {
-    console.log(req.file)
-    console.log(req.files)
+    const imgFolder = req.files
     const category = [
       {
         name: req.body.c1,
-        imgUrl: req.files.c1img.location,
+        imgUrl: imgFolder.c1img.location,
       },
       {
         name: req.body.c2,
-        imgUrl: req.files.c2img.location,
+        imgUrl: imgFolder.c2img.location,
       },
       {
         name: req.body.c3,
-        imgUrl: req.files.c3img.location,
+        imgUrl: imgFolder.c3img.location,
       },
       {
         name: req.body.c4,
-        imgUrl: req.files.c4img.location,
+        imgUrl: imgFolder.c4img.location,
       },
       {
         name: req.body.c5,
-        imgUrl: req.files.c5img.location,
+        imgUrl: imgFolder.c5img.location,
       },
       {
         name: req.body.c6,
-        imgUrl: req.files.c6img.location,
+        imgUrl: imgFolder.c6img.location,
       },
       {
         name: req.body.c7,
-        imgUrl: req.files.c7img.location,
+        imgUrl: imgFolder.c7img.location,
       },
       {
         name: req.body.c8,
-        imgUrl: req.files.c8img.location,
+        imgUrl: imgFolder.c8img.location,
       },
       {
         name: req.body.c9,
-        imgUrl: req.files.c9img.location,
+        imgUrl: imgFolder.c9img.location,
       },
       {
         name: req.body.c10,
-        imgUrl: req.files.c10img.location,
+        imgUrl: imgFolder.c10img.location,
       },
       {
         name: req.body.c11,
-        imgUrl: req.files.c11img.location,
+        imgUrl: imgFolder.c11img.location,
       },
       {
         name: req.body.c12,
-        imgUrl: req.files.c12img.location,
+        imgUrl: imgFolder.c12img.location,
       },
     ]
 
     const moreCategory = [
       {
         name: req.body.c1n,
-        imgUrl: req.files.c1nimg.location,
+        imgUrl: imgFolder.c1nimg.location,
       },
       {
         name: req.body.c2n,
-        imgUrl: req.files.c2nimg.location,
+        imgUrl: imgFolder.c2nimg.location,
       },
       {
         name: req.body.c3n,
-        imgUrl: req.files.c3nimg.location,
+        imgUrl: imgFolder.c3nimg.location,
       },
       {
         name: req.body.c4n,
-        imgUrl: req.files.c4nimg.location,
+        imgUrl: imgFolder.c4nimg.location,
       },
       {
         name: req.body.c5n,
-        imgUrl: req.files.c5nimg.location,
+        imgUrl: imgFolder.c5nimg.location,
       },
       {
         name: req.body.c6n,
-        imgUrl: req.files.c6nimg.location,
+        imgUrl: imgFolder.c6nimg.location,
       },
       {
         name: req.body.c7n,
-        imgUrl: req.files.c7nimg.location,
+        imgUrl: imgFolder.c7nimg.location,
       },
       {
         name: req.body.c8n,
-        imgUrl: req.files.c8nimg.location,
+        imgUrl: imgFolder.c8nimg.location,
       },
       {
         name: req.body.c9n,
-        imgUrl: req.files.c9nimg.location,
+        imgUrl: imgFolder.c9nimg.location,
       },
       {
         name: req.body.c10n,
-        imgUrl: req.files.c10nimg.location,
+        imgUrl: imgFolder.c10nimg.location,
       },
       {
         name: req.body.c11n,
-        imgUrl: req.files.c11nimg.location,
+        imgUrl: imgFolder.c11nimg.location,
       },
       {
         name: req.body.c12n,
-        imgUrl: req.files.c12nimg.location,
+        imgUrl: imgFolder.c12nimg.location,
       },
     ]
 
     const page = await Page.create({
       pageName: req.body.pageName,
-      imgUrl: req.files.imgUrl.location,
-      img1: req.files.img1.location,
-      img2: req.files.img2.location,
+      imgUrl: imgFolder.imgUrl.location,
+      img1: imgFolder.img1.location,
+      img2: imgFolder.img2.location,
       text1: req.body.text1,
       text2: req.body.text2,
       text3: req.body.text3,
       text4: req.body.text4,
       category: category,
       imb1: {
-        imgUrl: req.files.imbImg1.location,
+        imgUrl: imgFolder.imbImg1.location,
         title: req.body.imgbt1,
         desc: req.body.desc1,
       },
       imb2: {
-        imgUrl: req.files.imbImg2.location,
+        imgUrl: imgFolder.imbImg2.location,
         title: req.body.imgbt2,
         desc: req.body.desc2,
       },
