@@ -122,10 +122,7 @@ app.get(
 
 app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
   try {
-    const data = req.files
-    console.log("here1", data)
-    data.map((data)=> data.location);
-    console.log("here2", data)
+    const data = JSON.parse(req.files)
     res.send({items: data})
   } catch (error) {
     res.send(error.message)
