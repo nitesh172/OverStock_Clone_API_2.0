@@ -5,7 +5,7 @@ const pageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  imgURL: {
+  imgUrl: {
     type: String,
     required: true,
   },
