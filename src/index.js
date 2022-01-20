@@ -122,7 +122,7 @@ app.get(
 
 app.post("/upload", async (req, res, next) => {
   console.log("hello google", req)
-  res.send(req.body)  
+  res.send(req)  
 })
 
 module.exports = app
