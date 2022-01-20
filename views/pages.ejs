@@ -31,8 +31,18 @@
   </body>
 </html>
 <script type="text/javascript">
-  function upload() {
-    let file = document.getElementById("uploadPic").value
-    console.log(file)
+  let file = document.getElementById("uploadPic").value
+  console.log(file.toString())
+  let url = "https://overstock-2.herokuapp.com/upload"
+  async function upload() {
+    let formData = new FormData()
+    formData.append("file", uploadPic.files[0])
+    await fetch(url, {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
   }
 </script>
