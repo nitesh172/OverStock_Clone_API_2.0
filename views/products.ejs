@@ -1,0 +1,86 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    div {
+      width: 13%;
+    }
+    input,
+    button {
+      width: 500px;
+      height: 30px;
+      margin: 10px 0;
+    }
+    body {
+      width: 60%;
+      margin: auto;
+      justify-content: center;
+      display: flex;
+    }
+  </style>
+  <body>
+    <div>
+      <h1>Add Product</h1>
+      <form
+        action="https://overstock-2.herokuapp.com/products"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="">imgURL</label>
+        <input type="file" placeholder="imgURl" name="imgURL" />
+        <label for="">img1</label>
+        <input type="file" placeholder="imgURl1" name="img1" />
+        <label for="">img2</label>
+        <input type="file" placeholder="imgURl2" name="img2" />
+        <label for="">img3</label>
+        <input type="file" placeholder="imgURl3" name="img3" />
+        <label for="">img4</label>
+        <input type="file" placeholder="imgURl4" name="img4" />
+        <label for="">img5</label>
+        <input type="file" placeholder="imgURl5" name="img5" />
+
+        <label for="">name</label>
+        <input type="text" placeholder="name" name="name" />
+
+        <label for="">rating</label>
+        <input type="number" placeholder="rating" name="rating" />
+
+        <label for="">color1</label>
+        <input type="text" placeholder="color1" name="color1Name" />
+        <label for="">color1 Img</label>
+        <input type="file" placeholder="color1 Img" name="color1Img" />
+        <label for="">color2</label>
+        <input type="text" placeholder="color2" name="color2Name" />
+        <label for="">color2 Img</label>
+        <input type="file" placeholder="color2Img" name="color2Img" />
+
+        <label for="">Price</label>
+        <input type="number" placeholder="price" name="price" />
+
+        <label for="">Main Category</label>
+        <input
+          type="text"
+          placeholder="main catergory"
+          value="Furniture"
+          name="main_catergory"
+        />
+        <label for="">Main Sub Category</label>
+        <input
+          type="text"
+          placeholder="main sub catergory"
+          name="main_sub_catergory"
+        />
+        <label for="">Sub Category</label>
+        <input type="text" placeholder="sub catergory" name="sub_catergory" />
+        <label for="">Category</label>
+        <input type="text" placeholder="catergory" name="catergory" />
+        <input type="submit" value="submit" />
+      </form>
+    </div>
+  </body>
+</html>

@@ -27,7 +27,8 @@ app.post("/register", uploadUser("profilePic"), register)
 app.post("/login", login)
 app.use("/pages", pageController)
 app.use("/products", productController)
-app.get("/admin", async (req, res)  => {
+
+app.get("/admin/pages", async (req, res)  => {
   try {
     return res.status(200).render("pages.ejs")
   } catch (error) {
@@ -35,6 +36,16 @@ app.get("/admin", async (req, res)  => {
     res.status(500).send(error.message)
   }
 })
+
+app.get("/admin/products", async (req, res)  => {
+  try {
+    return res.status(200).render("products.ejs")
+  } catch (error) {
+    console.log(error.message)
+    res.status(500).send(error.message)
+  }
+})
+
 app.get("/confrimation/:token", async (req, res) => {
   try {
     const user = await verifyToken(req.params.token)
