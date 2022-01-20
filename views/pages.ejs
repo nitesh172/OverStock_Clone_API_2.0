@@ -16,30 +16,23 @@
   </head>
   <body>
     <h1>Pages Console</h1>
-    <form
-      action="/upload"
-      enctype="multipart/form-data"
-      method="post"
-      onsubmit="prevent()"
-    >
-      <div class="uploaddiv">
-        <div>
-          <label for="UploadPic">Upload Picture</label>
-          <input type="file" id="uploadPic" name="uploadPic" />
-        </div>
-        <div>
-          <input type="submit" value="upload" />
-        </div>
-        <div>
-          <textarea name="" id="" cols="30" rows="10"> </textarea>
-        </div>
+    <div class="uploaddiv">
+      <div>
+        <label for="UploadPic">Upload Picture</label>
+        <input type="file" id="uploadPic" name="uploadPic" />
       </div>
-    </form>
+      <div>
+        <button onclick="upload()">Submit</button>
+      </div>
+      <div>
+        <textarea name="" id="" cols="30" rows="10"> </textarea>
+      </div>
+    </div>
   </body>
 </html>
 <script type="text/javascript">
-   function prevent(e) {
-       e.preventDefault()
-       console.log("ncho")
-   }
+  function upload() {
+    let file = document.getElementById("uploadPic").value
+    console.log(file)
+  }
 </script>
