@@ -120,9 +120,14 @@ app.get(
   }
 )
 
-app.post("/upload", async (req, res, next) => {
-  console.log("hello google", req)
-  res.send({message: "hello google"}, req)  
+app.post("/upload", (req, res) => {
+  try {
+    console.log("hello google", req)
+    res.send({ message: "hello google" }, req)
+  } catch (error) {
+    res.send(error.message)
+    console.log(error.message)
+  }  
 })
 
 module.exports = app
