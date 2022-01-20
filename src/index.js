@@ -26,6 +26,8 @@ app.post("/login", login)
 
 app.post("/pages/create", fieldWise(), async (req, res) => {
   try {
+    console.log(req.file)
+    console.log(req.files)
     const category = [
       {
         name: req.body.c1,
