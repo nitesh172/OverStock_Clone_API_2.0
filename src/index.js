@@ -1,5 +1,4 @@
 const express = require("express")
-const ejs = require("ejs")
 
 const app = express()
 app.use(express.json())
@@ -15,9 +14,8 @@ const {uploadUser, uploadUsers} = require("./Middlewares/multer")
 const passport = require("./Configs/passport.google")
 
 const User = require("./Models/user.model")
-const { rmSync } = require("fs")
 
-app.set("view engine", ejs)
+app.set("view engine", "ejs")
 
 app.use(express.urlencoded({extended: true}))
 
@@ -122,8 +120,8 @@ app.get(
 
 app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
   try {
-    const data = JSON.parse(req.files)
-    res.send({items: data})
+    const data = req.files
+    res.render("pages", {items: data})
   } catch (error) {
     res.send(error.message)
     console.log(error.message)
