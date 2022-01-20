@@ -16,14 +16,19 @@
   </head>
   <body>
     <h1>Pages Console</h1>
-    <form action="/upload" enctype="multipart/form-data" method="post">
+    <form
+      action="/upload"
+      enctype="multipart/form-data"
+      method="post"
+      id="formUpload"
+    >
       <div class="uploaddiv">
         <div>
           <label for="UploadPic">Upload Picture</label>
           <input type="file" id="uploadPic" name="uploadPic" />
         </div>
         <div>
-          <input type="submit" value="upload"/>
+          <input type="submit" value="upload" />
         </div>
         <div>
           <textarea name="" id="" cols="30" rows="10"> </textarea>
@@ -32,3 +37,8 @@
     </form>
   </body>
 </html>
+<script type="text/javascript">
+   document.getElementById('formUpload').submit(function (e) {
+       e.preventDefault();
+  })
+</script>
