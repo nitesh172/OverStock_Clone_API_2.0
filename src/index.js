@@ -37,7 +37,8 @@ app.post("/pages/create", async (req, res) => {
 
 app.get("/admin", async (req, res)  => {
   try {
-    return res.status(200).render("pages.ejs")
+    const url = null
+    return res.status(200).render("pages.ejs", {url})
   } catch (error) {
     console.log(error.message)
     res.status(500).send(error.message)
