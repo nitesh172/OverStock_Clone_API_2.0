@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .uploaddiv{
-            display: flex;
-            justify-content: space-between;
-            width: 60%;
-            margin: auto;
-        }
+      .uploaddiv {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+        margin: auto;
+      }
     </style>
-
-</head>
-<body>
+  </head>
+  <body>
     <h1>Pages Console</h1>
     <form action="/uploaded" method="post">
-        <div class="uploaddiv">
-            <div>
-                <label for="UploadPic">Upload Picture</label>
-                <input type="file" id="UploadPic" name="uploadPic">
-            </div>
-            <div>
-                <input type="submit">
-            </div>
-            <div>
-                <textarea name="" id="" cols="30" rows="10">
-                </textarea>
-            </div>
+      <div class="uploaddiv">
+        <div>
+          <label for="UploadPic">Upload Picture</label>
+          <input type="file" id="UploadPic" name="uploadPic" />
         </div>
+        <div>
+          <input type="submit" />
+        </div>
+        <div>
+          <textarea name="" id="" cols="30" rows="10">
+                    <% if({url: url}) { %>
+                        <%= {url : url} %>
+                    <% } %>
+                </textarea
+          >
+        </div>
+      </div>
     </form>
-</body>
+  </body>
 </html>
