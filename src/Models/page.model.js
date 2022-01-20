@@ -33,7 +33,7 @@ const pageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  catergory: {
+  category: {
     type: Array,
     required: true,
   },
