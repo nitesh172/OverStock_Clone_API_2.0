@@ -122,7 +122,7 @@ app.get(
 
 app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
   try {
-    res.send({message: "hello namsate", data: req.files})
+    res.render("pages",{data: req.files})
   } catch (error) {
     res.send(error.message)
     console.log(error.message)
