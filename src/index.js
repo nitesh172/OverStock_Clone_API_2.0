@@ -122,7 +122,7 @@ app.get(
 
 app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
   try {
-    const data = req.files["items"]
+    const data = req.files
     console.log("here1", data)
     data.map((data)=> data.location);
     console.log("here2", data)
