@@ -27,7 +27,13 @@ app.post("/login", login)
 app.post("/pages/create", fieldWise(), async (req, res) => {
   try {
     const imgFolder = req.files
-    console.log("console here", imgFolder.imgURL[0].location)
+    console.log(
+      "console here",
+      imgFolder.imgURL[0].location,
+      imgFolder.c1img[0].location,
+      imgFolder.c1nimg[0].location,
+      imgFolder.imbImg1[0].location
+    )
     const category = [
       {
         name: req.body.c1,
