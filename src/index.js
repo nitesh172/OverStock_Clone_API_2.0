@@ -1,57 +1,62 @@
-const express = require("express")
+const express = require("express");
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
-const cors = require("cors")
+const cors = require("cors");
 
-app.use(cors())
+app.use(cors());
 
-const userController = require("./Controllers/user.controller")
-const {register, login, verifyToken } = require("./Controllers/auth.controller")
-const {uploadUser, uploadUsers} = require("./Middlewares/multer")
+const userController = require("./Controllers/user.controller");
+const {
+  register,
+  login,
+  verifyToken,
+} = require("./Controllers/auth.controller");
+const { uploadUser, uploadUsers } = require("./Middlewares/multer");
 
-const passport = require("./Configs/passport.google")
+const passport = require("./Configs/passport.google");
 
-const User = require("./Models/user.model")
+const User = require("./Models/user.model");
 
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
 
-app.use("/users", userController)
-app.post("/register", uploadUser("profilePic"), register)
-app.post("/login", login)
+app.use("/users", userController);
+app.post("/register", uploadUser("profilePic"), register);
+app.post("/login", login);
 
 app.post("/pages/create", async (req, res) => {
   try {
-    const page = await Page.create(req.body)
+    const page = await Page.create(req.body);
 
-    return res.status(201).send(page)
+    return res.status(201).send(page);
   } catch (error) {
-    console.log(error.message)
-    res.status(500).send(error.message)
+    console.log(error.message);
+    res.status(500).send(error.message);
   }
-})
+});
 
-app.get("/admin", async (req, res)  => {
+app.get("/admin", async (req, res) => {
   try {
-    return res.status(200).render("pages.ejs")
+    const items = undefined;
+    res.render("pages", { items: items });
   } catch (error) {
-    console.log(error.message)
-    res.status(500).send(error.message)
+    console.log(error.message);
+    res.status(500).send(error.message);
   }
-})
+});
 
 app.get("/confrimation/:token", async (req, res) => {
   try {
-    const user = await verifyToken(req.params.token)
+    const user = await verifyToken(req.params.token);
 
-    if (!user) return res.status(402).send({ message: "invalid token" })
+    if (!user) return res.status(402).send({ message: "invalid token" });
 
-    user.user.confirmed = true
+    user.user.confirmed = true;
 
-    console.log(user)
+    console.log(user);
 
     try {
       const updatedUser = await User.findByIdAndUpdate(
@@ -62,36 +67,34 @@ app.get("/confrimation/:token", async (req, res) => {
         }
       )
         .lean()
-        .exec()
+        .exec();
 
-      res
-        .status(200)
-        .render("confirmmail.ejs", {
-          updatedUser,
-          message: "Verification Sucessfull",
-        })
+      res.status(200).render("confirmmail.ejs", {
+        updatedUser,
+        message: "Verification Sucessfull",
+      });
     } catch (error) {
-      console.log(error.message)
-      res.status(500).send(error.message)
+      console.log(error.message);
+      res.status(500).send(error.message);
     }
   } catch (error) {
-    console.log(error.message)
-    res.status(500).send(error.message)
+    console.log(error.message);
+    res.status(500).send(error.message);
   }
-})
+});
 
 passport.serializeUser(function (user, done) {
-  done(null, user)
-})
+  done(null, user);
+});
 
 passport.deserializeUser(function (user, done) {
-  done(null, user)
-})
+  done(null, user);
+});
 
 app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["email", "profile"] })
-)
+);
 
 app.get(
   "/auth/google/callback",
@@ -99,33 +102,33 @@ app.get(
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
-    res.status(201).send({ user: req.user?.user, token: req.user?.token })
+    res.status(201).send({ user: req.user?.user, token: req.user?.token });
   }
-)
+);
 
 app.get("/auth/google/failure", (req, res) => {
-  res.send("failure")
-})
+  res.send("failure");
+});
 
-app.get("/auth/facebook", passport.authenticate("facebook"))
+app.get("/auth/facebook", passport.authenticate("facebook"));
 
 app.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", { failureRedirect: "/login" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/")
+    res.redirect("/");
   }
-)
+);
 
 app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
   try {
-    const items = req.files
-    res.render("pages", {items: items})
+    const items = req.files;
+    res.render("pages", { items: items });
   } catch (error) {
-    res.send(error.message)
-    console.log(error.message)
-  }  
-})
+    res.send(error.message);
+    console.log(error.message);
+  }
+});
 
-module.exports = app
+module.exports = app;
