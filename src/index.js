@@ -15,6 +15,7 @@ const {uploadUser} = require("./Middlewares/multer")
 const passport = require("./Configs/passport.google")
 
 const User = require("./Models/user.model")
+const { rmSync } = require("fs")
 
 app.set("view engine", ejs)
 
@@ -120,7 +121,8 @@ app.get(
 )
 
 app.post("/upload", async (req, res, next) => {
-  uploadUser("uploadPic")
+  console.log(req.body)
+  res.send(req.body)  
 })
 
 module.exports = app
