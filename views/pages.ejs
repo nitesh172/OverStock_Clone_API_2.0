@@ -20,7 +20,7 @@
       action="/upload"
       enctype="multipart/form-data"
       method="post"
-      id="formUpload"
+      onsubmit="prevent()"
     >
       <div class="uploaddiv">
         <div>
@@ -38,7 +38,8 @@
   </body>
 </html>
 <script type="text/javascript">
-   document.getElementById('formUpload').submit(function (e) {
-       e.preventDefault();
-  })
+   function prevent(e) {
+       e.preventDefault()
+       console.log("ncho")
+   }
 </script>
