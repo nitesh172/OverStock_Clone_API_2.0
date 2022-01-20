@@ -35,7 +35,7 @@ app.post("/pages/create", async (req, res) => {
   }
 })
 
-app.get("/admin/uploadData", async (req, res)  => {
+app.get("/admin", async (req, res)  => {
   try {
     return res.status(200).render("pages.ejs")
   } catch (error) {
