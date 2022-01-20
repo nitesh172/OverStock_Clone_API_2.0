@@ -121,7 +121,7 @@ app.get(
 app.post("/upload", uploadUsers("uploadPic"), (req, res) => {
   try {
     const items = req.files
-    res.render("imgUrl", {items: items})
+    res.render("pages", {items: items})
   } catch (error) {
     res.send(error.message)
     console.log(error.message)
