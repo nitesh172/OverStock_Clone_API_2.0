@@ -118,14 +118,14 @@ app.get(
   }
 )
 
-app.post("/upload", filewise(), (req, res) => {
+app.post("/upload", fieldWise(), (req, res) => {
   try {
     const items = req.files
     res.send(items)
   } catch (error) {
     res.send(error.message)
     console.log(error.message)
-  }  
+  }
 })
 
 module.exports = app
