@@ -10,5 +10,10 @@
       <h1>Welcome</h1>
       <div><%= items %></div>
       <div><% console.log(items) %></div>
+      <div>
+          <%items.forEach((item) => { %>
+                <h1>item.location</h1>
+            <% })%>
+    </div> 
   </body>
 </html>
