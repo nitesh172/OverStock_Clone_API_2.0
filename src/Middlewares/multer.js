@@ -3,8 +3,8 @@ var multer = require("multer")
 var multerS3 = require("multer-s3")
 
 var s3 = new aws.S3({
-  accessKeyId: "AKIAUWYRXQS37PDEGFAS",
-  secretAccessKey: "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",
+  accessKeyId: "AKIAUWYRXQS373SOJWOH",
+  secretAccessKey: "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",
 })
 
 const upload = multer({
