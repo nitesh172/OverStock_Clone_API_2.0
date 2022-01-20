@@ -10,7 +10,7 @@ app.use(cors())
 
 const userController = require("./Controllers/user.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
-const upload = require("./Middlewares/multer")
+const {uploadUser} = require("./Middlewares/multer")
 
 const passport = require("./Configs/passport.google")
 
@@ -21,7 +21,7 @@ app.set("view engine", ejs)
 app.use(express.urlencoded({extended: true}))
 
 app.use("/users", userController)
-app.post("/register", upload.single("profilePic"), register)
+app.post("/register", uploadUser("profilePic"), register)
 app.post("/login", login)
 
 app.post("/pages/create", async (req, res) => {
@@ -35,7 +35,7 @@ app.post("/pages/create", async (req, res) => {
   }
 })
 
-app.get("/pages", async (req, res)  => {
+app.get("/admin/uploadData", async (req, res)  => {
   try {
     return res.status(200).render("pages.ejs")
   } catch (error) {
@@ -118,5 +118,14 @@ app.get(
     res.redirect("/")
   }
 )
+
+
+app.post("/uploaded",uploadUser("uploadPic"),async (req,res) => {
+  try{
+    return res.status(201).render("pages.ejs",{url:req.file.location});
+  } catch(err){
+    return res.status.send(err.message);
+  }
+})
 
 module.exports = app
