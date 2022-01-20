@@ -32,9 +32,11 @@
           <input type="submit" value="upload" />
         </div>
         <div>
-          <%items.forEach((item) => { %>
-          <h4><%= item.location %></h4>
-          <% })%>
+         <% if(items){ %>
+            <%items.forEach((item) => { %>
+            <h4><%= item.location %></h4>
+            <% })%>
+         <% } %>
         </div>
       </div>
     </form>
