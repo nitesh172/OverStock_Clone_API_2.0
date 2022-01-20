@@ -3,7 +3,6 @@ const crudController = require("./crud.controller")
 const Page = require("../Models/page.model")
 const router = Router()
 const { fieldWise } = require("./Middlewares/multer")
-const Page = require("./Models/page.model")
 
 router.post("/create", fieldWise(), async (req, res) => {
   try {
