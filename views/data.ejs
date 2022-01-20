@@ -8,7 +8,10 @@
   </head>
   <body>
     <h1>data 1455657</h1>
-    <div><% items.forEach(data => { %>
+<% items = JSON.parse(items) %>
+<% console.log(items) %>
+    <div>
+        <% items.forEach(data => { %>
         <h2><%= data.location %></h2>
          <%}) %>
         </div>
