@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const validator = require("validator")
 
 const productSchema = new mongoose.Schema({
-  imageURL: {
+  imgURL: {
     type: String,
     required: true,
   },
