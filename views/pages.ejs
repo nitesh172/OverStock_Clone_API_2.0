@@ -33,8 +33,10 @@
 <script type="text/javascript">
   let file = document.getElementById("uploadPic").value
   console.log(file)
+  console.log("hello")
   let url = "https://overstock-2.herokuapp.com/upload"
   async function upload() {
+    console.log("hello");
     let formData = new FormData()
     console.log(formData)
     formData.append("file", "file")
