@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.postimg.cc/8krkp918/Overstock-Logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./CSS/feedBack.css" />
+    <title>Feedback form</title>
+  </head>
+  <body>
+    <h2 style="text-align: center; color: rgb(77, 77, 77)">Feedback Form</h2>
+    <div id="container">
+      <form id="feedBackForm">
+        <span id="nameAndEmail">
+          <label for="name"
+            >Your Name<br />
+            <input
+              type="text"
+              id="name"
+              placeholder="Please provide your name"
+            />
+          </label>
+
+          <label for="email"
+            >Your Email<br />
+            <input
+              type="text"
+              id="email"
+              placeholder="Please provide your email"
+            />
+          </label>
+        </span>
+        <span id="firstTimeAndFindDetails">
+          <span>
+            <p>Is this your first time on this site?</p>
+            <label for="firstYes">Yes</label>
+            <input
+              id="firstYes"
+              type="radio"
+              name="firstTimeRadio"
+              class="firstTimeClass"
+              required
+            />
+            <label for="firstNo">No</label>
+            <input
+              id="firstNo"
+              type="radio"
+              name="firstTimeRadio"
+              class="firstTimeClass"
+            />
+          </span>
+          <span>
+            <p>Were you able to find what you needed?</p>
+            <label for="needYes">Yes</label>
+            <input
+              id="needYes"
+              type="radio"
+              name="findNeededRadio"
+              class="findProductClass"
+              required
+            />
+            <label for="needNo">No</label>
+            <input
+              id="needNo"
+              type="radio"
+              name="findNeededRadio"
+              class="findProductClass"
+            />
+          </span>
+        </span>
+        <span id="primaryReasonAndNotFound">
+          <span>
+            <p>What is the primary reason you visited this site?</p>
+            <textarea id="primaryReasonTA" required></textarea>
+          </span>
+          <span>
+            <p>Please tell us what product you were not able to find?</p>
+            <textarea id="notFoundTA" required></textarea>
+          </span>
+        </span>
+        <span id="easinessAndReturn">
+          <span>
+            <p>How easy it is to find information in this site?</p>
+
+            <label for="veryEasy">
+              <input
+                id="veryEasy"
+                type="radio"
+                name="easinessRadio"
+                required
+              />Very Easy</label
+            >
+
+            <label for="easy">
+              <input id="easy" type="radio" name="easinessRadio" />Easy</label
+            >
+
+            <label for="medium">
+              <input
+                id="medium"
+                type="radio"
+                name="easinessRadio"
+              />Medium</label
+            >
+
+            <label for="hard">
+              <input id="hard" type="radio" name="easinessRadio" />Hard</label
+            >
+
+            <label for="veryHard">
+              <input id="veryHard" type="radio" name="easinessRadio" />Very
+              Hard</label
+            >
+          </span>
+          <span>
+            <p>What is the likelihood that you will return to this site</p>
+
+            <label for="extLikely">
+              <input
+                type="radio"
+                id="extLikely"
+                name="visitAgain"
+                required
+              />Extremely Likely</label
+            >
+
+            <label for="likely">
+              <input type="radio" id="likely" name="visitAgain" /> Likely</label
+            >
+            <label for="modLikely">
+              <input type="radio" id="modLikely" name="visitAgain" />
+              Modrately Likely</label
+            >
+            <label for="slightly">
+              <input type="radio" id="slightly" name="visitAgain" />
+              Slightly Likely</label
+            >
+            <label for="extLikely">
+              <input type="radio" id="never" name="visitAgain" />
+              Very Unlikely</label
+            >
+          </span>
+        </span>
+        <span id="additionFeedback">
+          <p>Please Provide Additional feedback if any....</p>
+          <textarea
+            placeholder="Please write your feedback here"
+            id="addFeedback"
+          ></textarea>
+        </span>
+        <input type="submit" id="submitFeedback" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
+<script src="Script/feedBackForm.js"></script>
