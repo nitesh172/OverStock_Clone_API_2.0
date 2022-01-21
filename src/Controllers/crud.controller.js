@@ -1,3 +1,5 @@
+const redis = require("../Configs/redis")
+
 const get = (model) => async (req, res) => {
   try {
     redis.get(`${model}`, async (err, value) => {
