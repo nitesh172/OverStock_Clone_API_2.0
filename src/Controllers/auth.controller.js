@@ -2,7 +2,6 @@ const User = require("../Models/user.model")
 require("dotenv").config()
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
-const { validationResult } = require("express-validator")
 const redis = require("../Configs/redis")
 
 const newToken = (user) => {
@@ -29,11 +28,6 @@ const transporter = require("../Configs/email")
 
 const register = async (req, res) => {
   try {
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() })
-    }
-
     let user = await User.findOne({ email: req.body.email }).lean().exec()
 
     if (user) return res.status(401).send({ message: "User already Exists" })
@@ -82,11 +76,6 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() })
-    }
-
     let user = await User.findOne({ email: req.body.email }).lean().exec()
 
     if (!user) return res.status(401).send({ message: "User not Found" })

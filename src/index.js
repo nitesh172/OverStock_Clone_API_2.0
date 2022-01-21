@@ -12,7 +12,6 @@ const pageController = require("./Controllers/page.controller")
 const productController = require("./Controllers/product.controller")
 const {register, login, verifyToken } = require("./Controllers/auth.controller")
 const {uploadUser} = require("./Middlewares/multer")
-const { body } = require("express-validator")
 
 
 const passport = require("./Configs/passport.google")
@@ -23,14 +22,9 @@ app.set("view engine", "ejs")
 
 app.use(express.urlencoded({extended: true}))
 
-const userRegisterValidator = [
-  body("email").isEmail().withMessage("Email is not Valid").bail(),
-  body("password").isLength({min: 8}).withMessage("Password sholud contain minimum 8 Charcters"),
-]
-
 app.use("/users", userController)
-app.post("/register", userRegisterValidator, uploadUser("profilePic"), register)
-app.post("/login",userRegisterValidator, login)
+app.post("/register",  uploadUser("profilePic"), register)
+app.post("/login", login)
 app.use("/pages", pageController)
 app.use("/products", productController)
 
