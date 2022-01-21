@@ -35,16 +35,16 @@ for(let i=1; i<=12; i++){
 }
 
 for(let i=1; i<=2; i++){
-pageValidator.push(body(`img${i}`).notEmpty().withMessage(`img${i} is required`));
-pageValidator.push(body(`imbImg${i}`).notEmpty().withMessage(`imbImg${i} is required`));
-pageValidator.push(body(`desc${i}`).notEmpty().withMessage(`desc${i} is required`));
-pageValidator.push(body(`imgbt${i}`).notEmpty().withMessage(`imgbt${i} is required`));
+pageValidator.push(body(`img${i}`).notEmpty().withMessage(`img${i} is required`).bail());
+pageValidator.push(body(`imbImg${i}`).notEmpty().withMessage(`imbImg${i} is required`).bail());
+pageValidator.push(body(`desc${i}`).notEmpty().withMessage(`desc${i} is required`).bail());
+pageValidator.push(body(`imgbt${i}`).notEmpty().withMessage(`imgbt${i} is required`).bail());
 }
-pageValidator.push(body("pageName").notEmpty().withMessage("pageName is required"));
-pageValidator.push(body("imgUrl").notEmpty().withMessage("imgUrl is required"));
+pageValidator.push(body("pageName").notEmpty().withMessage("pageName is required").bail());
+pageValidator.push(body("imgUrl").notEmpty().withMessage("imgUrl is required").bail());
 
 for(let i=1; i<=4; i++){
-pageValidator.push(body(`text${i}`).notEmpty().withMessage(`text${i} is required`));
+pageValidator.push(body(`text${i}`).notEmpty().withMessage(`text${i} is required`).bail());
 }
 
 router.post("/create",pageValidator, fieldWise(arr), async (req, res) => {
