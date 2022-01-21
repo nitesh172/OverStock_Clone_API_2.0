@@ -2,25 +2,38 @@ const User = require("../Models/user.model")
 require("dotenv").config()
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
+const { validationResult } = require("express-validator")
+
 
 const newToken = (user) => {
-  return jwt.sign({ user: user }, "gsfgsfgduskjghskjhgsduagseuiwahgwiesuytuiyshwtuwyuwhnfiow")
+  return jwt.sign(
+    { user: user },
+    "gsfgsfgduskjghskjhgsduagseuiwahgwiesuytuiyshwtuwyuwhnfiow"
+  )
 }
 
 const verifyToken = (token) => {
-    return new Promise((resolve, reject)=> {
-        jwt.verify(token, "gsfgsfgduskjghskjhgsduagseuiwahgwiesuytuiyshwtuwyuwhnfiow", function (err, decoded) {
-           if(err) return reject(err)
-           resolve(decoded)
-        })
-    })
+  return new Promise((resolve, reject) => {
+    jwt.verify(
+      token,
+      "gsfgsfgduskjghskjhgsduagseuiwahgwiesuytuiyshwtuwyuwhnfiow",
+      function (err, decoded) {
+        if (err) return reject(err)
+        resolve(decoded)
+      }
+    )
+  })
 }
 
 const transporter = require("../Configs/email")
 
 const register = async (req, res) => {
   try {
-    console.log(req.file)
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() })
+    }
+
     let user = await User.findOne({ email: req.body.email }).lean().exec()
 
     if (user) return res.status(401).send({ message: "User already Exists" })
@@ -38,7 +51,7 @@ const register = async (req, res) => {
       from: "outstockclone@gmail.com", // sender address
       to: req.body.email, // list of receivers
       subject: "Confirm your gmail", // Subject line
-      html:`<h1> Confrim Mail</h1> <br> <a href="${url}" target="_blank" alt=""><button>Click Here</button></a>`, // plain text body
+      html: `<h1> Confrim Mail</h1> <br> <a href="${url}" target="_blank" alt=""><button>Click Here</button></a>`, // plain text body
     }
 
     transporter.sendMail(mailOptions, function (err, info) {
@@ -57,21 +70,25 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() })
+    }
+
     let user = await User.findOne({ email: req.body.email }).lean().exec()
 
     if (!user) return res.status(401).send({ message: "User not Found" })
 
-    const match =  bcrypt.compareSync(req.body.password, user.password)
+    const match = bcrypt.compareSync(req.body.password, user.password)
 
     if (!match) return res.status(401).send({ message: "Password Invalid" })
 
-    if(!user.confirmed) return res.status(401).send({ message: "First verify your Email" })
+    if (!user.confirmed)
+      return res.status(401).send({ message: "First verify your Email" })
 
     const token = newToken(user)
 
-    return res
-      .status(201)
-      .send({ user, token, message: "Login sucessfull" })
+    return res.status(201).send({ user, token, message: "Login sucessfull" })
   } catch (error) {
     console.log(error.message)
     return res.status(500).send(error.message)
