@@ -2,6 +2,7 @@ const redis = require("../Configs/redis")
 
 const get = (model) => async (req, res) => {
   try {
+    console.log("hello Rahul Mai edher hu",model)
     redis.get(`${model}`, async (err, value) => {
       if (err) console.log(err.message)
 
