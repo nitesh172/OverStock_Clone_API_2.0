@@ -9,7 +9,7 @@ const { validationResult } = require("express-validator")
 const redis = require("../Configs/redis")
 
 
-router.get("", crudController(Product).get)
+router.get("", crudController(Product, "Product").get)
 
 let arr = []
 

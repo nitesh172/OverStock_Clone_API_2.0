@@ -7,6 +7,10 @@ const { body } = require("express-validator")
 const { validationResult } = require("express-validator")
 const redis = require("../Configs/redis")
 
+
+router.get("", crudController(Page, "Page").get)
+
+
 function CreateObject(name, imgUrl) {
   return {
     name,
