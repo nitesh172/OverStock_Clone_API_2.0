@@ -25,16 +25,28 @@ arr.push({ name: "img2" })
 arr.push({ name: "imbImg1" })
 arr.push({ name: "imbImg2" })
 
-const productValidator = [
-  body("imgURL").notEmpty().withMessage("imgURL is ").bail(),
-  body("img1").notEmpty().withMessage("img1 is ").bail(),
-  body("img2").notEmpty().withMessage("img2 is ").bail(),
-  body("img3").notEmpty().withMessage("img3 is ").bail(),
-  body("img4").notEmpty().withMessage("img4 is ").bail(),
-  body("img5").notEmpty().withMessage("img5 is ").bail(),
-]
+const pageValidator = []
+for(let i=1; i<=12; i++){
+  pageValidator.push(body(`c${i}`).notEmpty().withMessage(`c${i} is required`).bail())
+  pageValidator.push(body(`c${i}img`).notEmpty().withMessage(`c${i}img is required`).bail())
+  pageValidator.push(body(`c${i}n`).notEmpty().withMessage(`c${i}n is required`).bail())
+  pageValidator.push(body(`c${i}nimg`).notEmpty().withMessage(`c${i}nimg is required`).bail())
+}
 
-router.post("/create", fieldWise(arr), async (req, res) => {
+for(let i=1; i<=2; i++){
+pageValidator.push(body(`img${i}`).notEmpty().withMessage(`img${i} is required`));
+pageValidator.push(body(`imbImg${i}`).notEmpty().withMessage(`imbImg${i} is required`));
+pageValidator.push(body(`desc${i}`).notEmpty().withMessage(`desc${i} is required`));
+pageValidator.push(body(`imgbt${i}`).notEmpty().withMessage(`imgbt${i} is required`));
+}
+pageValidator.push(body("pageName").notEmpty().withMessage("pageName is required"));
+pageValidator.push(body("imgUrl").notEmpty().withMessage("imgUrl is required"));
+
+for(let i=1; i<=4; i++){
+pageValidator.push(body(`text${i}`).notEmpty().withMessage(`text${i} is required`));
+}
+
+router.post("/create",pageValidator, fieldWise(arr), async (req, res) => {
   try {
     const imgFolder = req.files
     let category = []
