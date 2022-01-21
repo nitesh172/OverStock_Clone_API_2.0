@@ -3,6 +3,8 @@ const redis = require("../Configs/redis")
 const get = (model) => async (req, res) => {
   try {
     console.log("hello Rahul Mai edher hu",model)
+    const key = String(model)
+    console.log("Hello Rahul Roshani Kha hai", key)
     redis.get(`${model}`, async (err, value) => {
       if (err) console.log(err.message)
 
