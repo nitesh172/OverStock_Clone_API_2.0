@@ -3,6 +3,7 @@ const crudController = require("./crud.controller")
 const Page = require("../Models/page.model")
 const router = Router()
 const { fieldWise } = require("../Middlewares/multer")
+const { body } = require("express-validator")
 
 function CreateObject(name, imgUrl) {
   return {
@@ -23,6 +24,15 @@ arr.push({ name: "img1" })
 arr.push({ name: "img2" })
 arr.push({ name: "imbImg1" })
 arr.push({ name: "imbImg2" })
+
+const productValidator = [
+  body("imgURL").notEmpty().withMessage("imgURL is ").bail(),
+  body("img1").notEmpty().withMessage("img1 is ").bail(),
+  body("img2").notEmpty().withMessage("img2 is ").bail(),
+  body("img3").notEmpty().withMessage("img3 is ").bail(),
+  body("img4").notEmpty().withMessage("img4 is ").bail(),
+  body("img5").notEmpty().withMessage("img5 is ").bail(),
+]
 
 router.post("/create", fieldWise(arr), async (req, res) => {
   try {
