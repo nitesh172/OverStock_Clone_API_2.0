@@ -4,6 +4,7 @@ const Page = require("../Models/page.model")
 const router = Router()
 const { fieldWise } = require("../Middlewares/multer")
 const { body } = require("express-validator")
+const { validationResult } = require("express-validator")
 
 function CreateObject(name, imgUrl) {
   return {

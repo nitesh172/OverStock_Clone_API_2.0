@@ -5,6 +5,7 @@ const crudController = require("./crud.controller")
 const Product = require("../Models/product.model")
 const { fieldWise } = require("../Middlewares/multer")
 const { body } = require("express-validator")
+const { validationResult } = require("express-validator")
 
 
 router.get("", crudController(Product).get)
