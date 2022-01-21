@@ -47,7 +47,7 @@ for(let i=1; i<=4; i++){
 pageValidator.push(body(`text${i}`).notEmpty().withMessage(`text${i} is required`).bail());
 }
 
-router.post("/create",pageValidator, fieldWise(arr), async (req, res) => {
+router.post("/create", fieldWise(arr), async (req, res) => {
   try {
 
     const errors = validationResult(req)
