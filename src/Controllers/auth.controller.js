@@ -3,7 +3,7 @@ require("dotenv").config()
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 const { validationResult } = require("express-validator")
-
+const redis = require("../Configs/redis")
 
 const newToken = (user) => {
   return jwt.sign(
@@ -57,6 +57,18 @@ const register = async (req, res) => {
     transporter.sendMail(mailOptions, function (err, info) {
       if (err) console.log(err)
       else console.log(info)
+    })
+
+    redis.get(`User`, async (err, value) => {
+      if (err) console.log(err)
+
+      if (value) {
+        value = JSON.parse(value)
+        redis.set(`User`, JSON.stringify([...value, user]))
+      } else {
+        value = await model.find().lean().exec()
+        redis.set(`User`, JSON.stringify(value))
+      }
     })
 
     return res

@@ -26,6 +26,18 @@ passport.use(
         })
       }
 
+      redis.get(`User`, async (err, value) => {
+        if (err) console.log(err)
+
+        if (value) {
+          value = JSON.parse(value)
+          redis.set(`User`, JSON.stringify([...value, user]))
+        } else {
+          value = await model.find().lean().exec()
+          redis.set(`User`, JSON.stringify(value))
+        }
+      })
+
       const token = newToken(user)
       console.log({ token, user })
       return done(null, { token, user })
