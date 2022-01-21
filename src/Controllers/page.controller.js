@@ -48,6 +48,12 @@ pageValidator.push(body(`text${i}`).notEmpty().withMessage(`text${i} is required
 
 router.post("/create",pageValidator, fieldWise(arr), async (req, res) => {
   try {
+
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() })
+    }
+
     const imgFolder = req.files
     let category = []
     let moreCategory = []

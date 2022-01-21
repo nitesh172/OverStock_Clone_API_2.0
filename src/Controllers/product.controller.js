@@ -38,6 +38,12 @@ const productValidator = [
 
 router.post("", productValidator,fieldWise(arr), async (req, res) => {
   try {
+
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() })
+    }
+
     const products = await Product.create({
       ...req.body,
       imgURL: req.files.imgURL[0].location,
