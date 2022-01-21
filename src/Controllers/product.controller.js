@@ -6,6 +6,7 @@ const Product = require("../Models/product.model")
 const { fieldWise } = require("../Middlewares/multer")
 const { body } = require("express-validator")
 const { validationResult } = require("express-validator")
+const redis = require("../Configs/redis")
 
 
 router.get("", crudController(Product).get)
@@ -63,6 +64,18 @@ router.post("", productValidator,fieldWise(arr), async (req, res) => {
           imgUrl: req.files.color2Img,
         },
       ],
+    })
+
+    redis.get("Product", async (err, value) => {
+      if (err) console.log(err)
+
+      if (value) {
+        value = JSON.parse(value)
+        redis.set("Product", JSON.stringify([...value, products]))
+      } else {
+        value = await model.find().lean().exec()
+        redis.set("Product", JSON.stringify(value))
+      }
     })
 
     res.status(201).send(products)

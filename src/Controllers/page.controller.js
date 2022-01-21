@@ -5,6 +5,7 @@ const router = Router()
 const { fieldWise } = require("../Middlewares/multer")
 const { body } = require("express-validator")
 const { validationResult } = require("express-validator")
+const redis = require("../Configs/redis")
 
 function CreateObject(name, imgUrl) {
   return {
@@ -92,6 +93,18 @@ router.post("/create", fieldWise(arr), async (req, res) => {
         desc: req.body.desc2,
       },
       moreCategory: moreCategory,
+    })
+
+    redis.get("Page", async (err, value) => {
+      if (err) console.log(err)
+
+      if (value) {
+        value = JSON.parse(value)
+        redis.set("Page", JSON.stringify([...value, page]))
+      } else {
+        value = await model.find().lean().exec()
+        redis.set("Page", JSON.stringify(value))
+      }
     })
 
     return res.status(201).send(page)
