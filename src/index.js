@@ -133,7 +133,7 @@ app.get(
 app.post("/razorpay", async (req, res) => {
   console.log(req.body)
   var options = {
-    amount: req.body.amount,
+    amount: "50000",
     currency: "INR",
   }
   instance.orders.create(options, function (err, order) {
