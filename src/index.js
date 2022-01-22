@@ -23,7 +23,7 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded({extended: true}))
 
 app.use("/users", userController)
-app.post("/register", uploadUser("profilePic"), register)
+app.post("/register",  uploadUser("profilePic"), register)
 app.post("/login", login)
 app.use("/pages", pageController)
 app.use("/products", productController)
@@ -54,8 +54,6 @@ app.get("/confrimation/:token", async (req, res) => {
 
     user.user.confirmed = true
 
-    console.log(user)
-
     try {
       const updatedUser = await User.findByIdAndUpdate(
         user.user._id,
@@ -66,6 +64,15 @@ app.get("/confrimation/:token", async (req, res) => {
       )
         .lean()
         .exec()
+
+        redis.get(`User.${user.user._id}`, async (err, fetchedPost) => {
+          if (err) console.log(err.message)
+
+          redis.set(`User.${user.user._id}`, JSON.stringify(user.user))
+
+          const users = await User.find().lean().exec()
+          redis.set(`User`, JSON.stringify(users))
+        })
 
       res
         .status(200)
