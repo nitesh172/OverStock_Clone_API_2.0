@@ -1,4 +1,4 @@
-module.exports = () =>{
+module.exports = (url) =>{
     return `<html ⚡4email data-css-strict>
 
 <head>
