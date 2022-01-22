@@ -154,7 +154,7 @@ const register = async (req, res) => {
                               <tr>
                                 <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
-                                  <img alt="Image" src="https://s3.amazonaws.com/unroll-images-production/projects%2F60049%2F1642860051966-000dbefd-804d-44e3-8fde-0e555eebea8c.png" width="3001" height="516" layout="intrinsic" style="width: 32%;max-width: 32%;">
+                                  <img alt="Image" src="https://s3.amazonaws.com/unroll-images-production/projects%2F60049%2F1642860051966-000dbefd-804d-44e3-8fde-0e555eebea8c.png" layout="intrinsic" style="width: 32%;max-width: 32%;">
 
                                   </img>
                                 </td>
@@ -189,7 +189,7 @@ const register = async (req, res) => {
                               <tr>
                                 <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
-                                  <img alt="Image" src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" width="335" height="93" layout="intrinsic" style="width: 26%;max-width: 26%;">
+                                  <img alt="Image" src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" layout="intrinsic" style="width: 26%;max-width: 26%;">
 
                                   </img>
                                 </td>
