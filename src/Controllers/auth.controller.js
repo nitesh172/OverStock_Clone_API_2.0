@@ -46,7 +46,7 @@ const register = async (req, res) => {
       from: "outstockclone@gmail.com", // sender address
       to: req.body.email, // list of receivers
       subject: "Confirm your gmail", // Subject line
-      html: emailCode, // plain text body
+      html: `${emailCode}`, // plain text body
     }
 
     transporter.sendMail(mailOptions, function (err, info) {
