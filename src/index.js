@@ -131,7 +131,7 @@ app.get(
 )
 
 app.post("/razorpay", async (req, res) => {
-  
+  console.log(req.body)
   var options = {
     amount: req.body.amount,
     currency: "INR",
