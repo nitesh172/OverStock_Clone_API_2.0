@@ -19,7 +19,11 @@ router.get("/mainSubCategory=:name", async (req, res) => {
         return res.status(201).send(value)
       } else {
         try {
-          const value = await Product.find({ main_sub_catergory }).lean().exec()
+          const value = await Product.find({
+            main_sub_catergory: mainSubCategory,
+          })
+            .lean()
+            .exec()
           redis.set(mainSubCategory, JSON.stringify(value))
           res.status(201).send(value)
         } catch (err) {
