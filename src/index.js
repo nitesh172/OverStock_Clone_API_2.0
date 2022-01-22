@@ -137,7 +137,7 @@ app.post("/razorpay", async (req, res) => {
   }
   instance.orders.create(options, function (err, order) {
     console.log(order)
-    res.status(200).send({ orderID: order.id })
+    res.status(200).json(order)
   })
 })
 
