@@ -4,6 +4,7 @@ const { newToken } = require("../Controllers/auth.controller")
 const FacebookStrategy = require("passport-facebook").Strategy
 const User = require("../Models/user.model")
 const { v4: uuidv4 } = require("uuid")
+const redis = require("./redis")
 
 passport.use(
   new GoogleStrategy(
