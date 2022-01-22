@@ -19,6 +19,7 @@ const { uploadUser } = require("./Middlewares/multer")
 const instance = require("./Configs/razorpay")
 
 const passport = require("./Configs/passport.google")
+const redis = require("./Configs/redis")
 
 const User = require("./Models/user.model")
 
