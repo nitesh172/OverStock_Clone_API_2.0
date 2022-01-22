@@ -45,7 +45,7 @@ const register = async (req, res) => {
       from: "outstockclone@gmail.com", // sender address
       to: req.body.email, // list of receivers
       subject: "Confirm your gmail", // Subject line
-      html: `!doctype html>
+      html: `
 <html ⚡4email data-css-strict>
 
 <head>
@@ -154,9 +154,9 @@ const register = async (req, res) => {
                               <tr>
                                 <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
-                                  <amp-img alt="Image" src="https://s3.amazonaws.com/unroll-images-production/projects%2F60049%2F1642860051966-000dbefd-804d-44e3-8fde-0e555eebea8c.png" width="3001" height="516" layout="intrinsic" style="width: 32%;max-width: 32%;">
+                                  <img alt="Image" src="https://s3.amazonaws.com/unroll-images-production/projects%2F60049%2F1642860051966-000dbefd-804d-44e3-8fde-0e555eebea8c.png" width="3001" height="516" layout="intrinsic" style="width: 32%;max-width: 32%;">
 
-                                  </amp-img>
+                                  </img>
                                 </td>
                               </tr>
                             </table>
@@ -189,9 +189,9 @@ const register = async (req, res) => {
                               <tr>
                                 <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
-                                  <amp-img alt="Image" src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" width="335" height="93" layout="intrinsic" style="width: 26%;max-width: 26%;">
+                                  <img alt="Image" src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" width="335" height="93" layout="intrinsic" style="width: 26%;max-width: 26%;">
 
-                                  </amp-img>
+                                  </img>
                                 </td>
                               </tr>
                             </table>
@@ -332,19 +332,19 @@ const register = async (req, res) => {
                           <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 33px;font-family:'Cabin',sans-serif;" align="left">
                             <div style="text-align:center;line-height:0px">
                               <a href="https://facebook.com/" target="_blank" style="display:inline-block;width:32px;height:32px;margin-right:17px">
-                                <amp-img src="https://cdn.tools.unlayer.com/social/icons/circle-black/facebook.png" width="32" height="32" />
+                                <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/facebook.png" width="32" height="32" />
                               </a>
                               <a href="https://linkedin.com/" target="_blank" style="display:inline-block;width:32px;height:32px;margin-right:17px">
-                                <amp-img src="https://cdn.tools.unlayer.com/social/icons/circle-black/linkedin.png" width="32" height="32" />
+                                <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/linkedin.png" width="32" height="32" />
                               </a>
                               <a href="https://instagram.com/" target="_blank" style="display:inline-block;width:32px;height:32px;margin-right:17px">
-                                <amp-img src="https://cdn.tools.unlayer.com/social/icons/circle-black/instagram.png" width="32" height="32" />
+                                <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/instagram.png" width="32" height="32" />
                               </a>
                               <a href="https://youtube.com/" target="_blank" style="display:inline-block;width:32px;height:32px;margin-right:17px">
-                                <amp-img src="https://cdn.tools.unlayer.com/social/icons/circle-black/youtube.png" width="32" height="32" />
+                                <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/youtube.png" width="32" height="32" />
                               </a>
                               <a href="https://email.com/" target="_blank" style="display:inline-block;width:32px;height:32px;margin-right:0px">
-                                <amp-img src="https://cdn.tools.unlayer.com/social/icons/circle-black/email.png" width="32" height="32" />
+                                <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/email.png" width="32" height="32" />
                               </a>
                             </div>
                           </td>
