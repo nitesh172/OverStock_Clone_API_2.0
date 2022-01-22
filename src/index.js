@@ -144,4 +144,8 @@ app.post("/razorpay", async (req, res) => {
   })
 })
 
+app.post("/razorpay/success", (req, res) => {
+  res.render("success")
+})
+
 module.exports = app
