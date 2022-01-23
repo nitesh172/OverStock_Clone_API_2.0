@@ -10,6 +10,7 @@ app.use(cors())
 const userController = require("./Controllers/user.controller")
 const pageController = require("./Controllers/page.controller")
 const productController = require("./Controllers/product.controller")
+const cartController = require("./Controllers/cart.controller")
 const {
   register,
   login,
@@ -32,6 +33,7 @@ app.post("/register", uploadUser("profilePic"), register)
 app.post("/login", login)
 app.use("/pages", pageController)
 app.use("/products", productController)
+app.use("/cart", cartController)
 
 app.get("/admin/pages", async (req, res) => {
   try {
