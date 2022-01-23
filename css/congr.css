@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  background-color: #f5f8fa;
+  font-family: "Roboto", sans-serif;
+}
+#container {
+  width: 100%;
+  height: 200px;
+  background-color: #b9e9c1;
+  padding: 10px;
+  border-radius: 10px;
+}
+img {
+  margin-left: 35%;
+  height: 100%;
+  border-radius: 50%;
+}
+#box {
+  width: 50%;
+  height: 450px;
+  /* border: 1px solid black; */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4%;
+}
+button {
+  background-color: rgb(255, 147, 8);
+  color: white;
+  /* height: 40px; */
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  width: 150px;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#container2 {
+  text-align: center;
+  background-color: rgb(230, 230, 230);
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+h1 {
+  color: rgb(29, 29, 29);
+}
+h2 {
+  color: rgb(0, 143, 143);
+}
+h3 {
+  color: rgb(29, 29, 29);
+}
+#feedBack {
+  margin: 0;
+  color: rgb(29, 29, 29);
+}
+#feedBack > span {
+  display: block;
+  margin: 5px 0 15px 0;
+  color: rgb(8, 127, 163);
+}
+#feedBackForm {
+  background-color: seagreen;
+}
+@media screen and (max-width: 1100px) {
+  #container {
+    width: 100%;
+    height: 200px;
+    background-color: #b9e9c1;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5rem;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #container {
+    width: 100%;
+    height: 200px;
+    background-color: #b9e9c1;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5rem;
+  }
+  img {
+    margin-left: 35%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+@media screen and (max-width: 900px) {
+  #container {
+    width: 100%;
+    height: 250px;
+    background-color: #b9e9c1;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10rem;
+  }
+  img {
+    margin-left: 25%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  #container2 {
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  #container {
+    width: 100%;
+    height: 280px;
+    background-color: #b9e9c1;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10rem;
+  }
+  img {
+    margin-left: 20%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  #container2 {
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  #container {
+    width: 100%;
+    height: 200px;
+    background-color: #b9e9c1;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15rem;
+  }
+  img {
+    margin-left: 15%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  #container2 {
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #container {
+    width: 100%;
+    height: 280px;
+    background-color: #b9e9c1;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 18rem;
+  }
+  img {
+    height: 100%;
+    border-radius: 47%;
+    width: 80%;
+  }
+  #container2 {
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+
+    font-size: 0.5rem;
+  }
+  h1 {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 300px) {
+  #container {
+    width: 80%;
+    height: 280px;
+    background-color: #b9e9c1;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 30rem;
+  }
+  img {
+    height: 100%;
+    border-radius: 47%;
+  }
+  #container2 {
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+
+    font-size: 0.5rem;
+  }
+  button {
+    background-color: rgb(255, 147, 8);
+    color: white;
+    /* height: 40px; */
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 50;
+
+    width: 100px;
+    height: 2rem;
+  }
+  #feedBackForm {
+    background-color: seagreen;
+  }
+}
