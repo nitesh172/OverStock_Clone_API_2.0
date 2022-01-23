@@ -111,12 +111,12 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    // successRedirect:
-    //   "https://overstock2.netlify.app/cart.html",
+    successRedirect:
+      "https://overstock2.netlify.app/cart.html",
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
-    res.status(201).render("Oauthconfig.ejs",{ user: req.user?.user })
+    res.status(201).send({ user: req.user?.user, token: req.user?.token })
   }
 )
 
