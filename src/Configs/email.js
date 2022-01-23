@@ -1,23 +1,3 @@
-// const nodemailer = require("nodemailer")
-
-// module.exports = nodemailer.createTransport({
-//  service: 'gmail',
-//  auth: {
-//         user: 'outstockclone@gmail.com',
-//         pass: 'nitesh12'
-//     }
-// });
-//   const nodemailer = require("nodemailer"),
-//     sgTransport = require("nodemailer-sendgrid-transport")
-
-// module.exports = nodemailer.createTransport(
-//     sgTransport({
-//       auth: {
-//         api_key: process.env.ADMIN_EMAIL_API_KEY, // your api key here, better hide it in env vars
-//       },
-//     })
-//   )
-
 const nodemailer = require("nodemailer")
 const { google } = require("googleapis")
 const OAuth2 = google.auth.OAuth2

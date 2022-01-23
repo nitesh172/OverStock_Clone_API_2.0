@@ -8,6 +8,34 @@ const redis = require("../Configs/redis")
 
 
 router.get("", crudController(Product, "Product").get)
+router.get("/mainSubCategory=:name", async (req, res) => {
+  try {
+    const mainSubCategory = req.params.name
+    redis.get(mainSubCategory, async (err, value) => {
+      if (err) console.log(err)
+
+      if (value) {
+        value = JSON.parse(value)
+        return res.status(201).send(value)
+      } else {
+        try {
+          const value = await Product.find({
+            main_sub_catergory: mainSubCategory,
+          })
+            .lean()
+            .exec()
+          redis.set(mainSubCategory, JSON.stringify(value))
+          res.status(201).send(value)
+        } catch (err) {
+          res.status(201).send(err.message)
+        }
+      }
+    })
+  } catch (error) {
+    console.log(error.message)
+    return res.status(500).send(error.message)
+  }
+})
 
 let arr = []
 

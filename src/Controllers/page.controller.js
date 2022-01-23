@@ -5,9 +5,31 @@ const router = Router()
 const { fieldWise } = require("../Middlewares/multer")
 const redis = require("../Configs/redis")
 
-
 router.get("", crudController(Page, "Page").get)
+router.get("/:name", async (req, res) => {
+  try {
+    const pageName = req.params.name
+    redis.get(pageName, async (err, value) => {
+      if (err) console.log(err)
 
+      if (value) {
+        value = JSON.parse(value)
+        return res.status(201).send(value)
+      } else {
+        try {
+          const value = await Page.findOne({pageName}).lean().exec()
+          redis.set(pageName, JSON.stringify(value))
+          res.status(201).send(value)
+        } catch (err) {
+          res.status(201).send(err.message)
+        }
+      }
+    })
+  } catch (error) {
+    console.log(error.message)
+    return res.status(500).send(error.message)
+  }
+})
 
 function CreateObject(name, imgUrl) {
   return {
@@ -46,7 +68,7 @@ router.post("/create", fieldWise(arr), async (req, res) => {
       category.push(CreateObject(a, b))
       moreCategory.push(CreateObject(c, d))
     }
-    
+
     const page = await Page.create({
       pageName: req.body.pageName,
       imgUrl: imgFolder.imgUrl[0].location,

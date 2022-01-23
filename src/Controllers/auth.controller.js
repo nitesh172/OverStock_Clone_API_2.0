@@ -3,6 +3,7 @@ require("dotenv").config()
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 const redis = require("../Configs/redis")
+const emailCode = require("../Configs/emailCode")
 
 const newToken = (user) => {
   return jwt.sign(
@@ -45,7 +46,7 @@ const register = async (req, res) => {
       from: "outstockclone@gmail.com", // sender address
       to: req.body.email, // list of receivers
       subject: "Confirm your gmail", // Subject line
-      html: `<h1> Confrim Mail</h1> <br> <a href="${url}" target="_blank" alt=""><button>Click Here</button></a>`, // plain text body
+      html: `${emailCode(url)}`, // plain text body
     }
 
     transporter.sendMail(mailOptions, function (err, info) {
