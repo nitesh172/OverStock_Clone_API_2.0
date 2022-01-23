@@ -1,3 +1,5 @@
+//This is auth constroller of our project..
+
 const User = require("../Models/user.model")
 require("dotenv").config()
 const jwt = require("jsonwebtoken")
