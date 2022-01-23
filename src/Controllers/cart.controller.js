@@ -14,7 +14,7 @@ router.post("", (req, res) => {
 
 router.get("", (req, res) => {
   try {
-    redis.get(req.body.email, async (err, value) => {
+    redis.get(req.body.email, (err, value) => {
       if (err) console.log(err.message)
       value = JSON.parse(value)
       return res.status(200).send(value)
