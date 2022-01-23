@@ -1,5 +1,5 @@
 const { Router } = require("express")
-
+const redis = require("../Configs/redis")
 const router = Router()
 
 router.post("", (req, res) => {
