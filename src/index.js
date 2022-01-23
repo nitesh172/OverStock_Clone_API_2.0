@@ -111,7 +111,8 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "https://overstock.netlify.app/signup.html",
+    successRedirect:
+      "https://overstock2.netlify.app/cart.html",
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
