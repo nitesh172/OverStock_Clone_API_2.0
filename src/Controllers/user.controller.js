@@ -1,3 +1,4 @@
+// user controller
 const {Router} = require("express")
 const crudController = require("./crud.controller")
 const User = require("../Models/user.model")
