@@ -4,6 +4,7 @@ const router = Router()
 
 router.post("", (req, res) => {
   try {
+      console.log(req.body, "hello rahul")
     redis.set(req.body.email, JSON.stringify(req.body.data))
     return res.status(201).send({ message: "data updated" })
   } catch (error) {
