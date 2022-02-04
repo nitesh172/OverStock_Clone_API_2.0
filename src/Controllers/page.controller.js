@@ -1,3 +1,4 @@
+// This is page controller of our project..
 const { Router } = require("express")
 const crudController = require("./crud.controller")
 const Page = require("../Models/page.model")

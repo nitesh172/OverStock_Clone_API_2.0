@@ -1,4 +1,4 @@
-//This is auth constroller of our project..
+//This is auth controller of our project..
 
 const User = require("../Models/user.model")
 require("dotenv").config()
