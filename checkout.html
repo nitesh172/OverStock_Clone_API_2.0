@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="./CSS/checkout.css">
+
+</head>
+
+<body>
+
+    <div class="overstock_div"> 
+        <img src="images/svgexport-1 (1).png"/>
+        <p> You are using our secure server</p>
+    </div>
+
+    <div class="overstock_div2">
+        <img src="images/fedex.jpg"/>
+        <p>Secure checkout provided by FedEx International.</br>
+            Your order total includes customs and taxes, if applicable.</p>
+    </div>
+
+    <div class = "returnAnchor_div"><a class = "returnAnchor" href="http://"> << Back to Cart</a></div>
+    <div id="addressContainer">
+        <div class="addressBox1">
+            <div class="addressBoxHead">
+                <p>Billing Address</p>
+            </div>
+            <div class= "bilingInputDiv">
+                <div class="bilingLabel">
+                    <label class = "topEle boldLabel">EMAIL</label> 
+                    <label  class = "boldLabel">First Name</label>
+                    <label  class = "boldLabel">Last Name</label> 
+                    <label>Company</label> 
+                    <label>Tax ID</label> 
+                    <label class = "boldLabel">Address Line 1</label>
+                    <label>Address Line 2</label>
+                    <label class = "boldLabel">Country</label> 
+                    <label class = "boldLabel">City</label> 
+                    <label>State</label> 
+                    <label>Zip code</label> 
+                    <label class = "boldLabel">Phone #</label> 
+                </div>
+                <div class="bilingInput">
+                    <input class = "topEle" id="email" height: type="text" required/>
+                    <input id="firstName" height: type="text" required />
+                    <input id="lastName" height: type="text" required/>
+                    <input id="company" height: type="text" />
+                    <input id="taxId" height: type="text" />
+                    <input id="address1" height: type="text" required/>
+                    <input id="address2" height: type="text" />
+                    <select class="form-select countrySelect" id = "country" aria-label="Default select example" required>
+                        <option selected>Select Country</option>
+                            <option value="india">India</option>
+                            <option value="canada">Canada</option>
+                            <option value="china">China</option>
+                            <option value="japan">Japan</option>
+                            <option value="russia">Russia</option>
+                            <option value="france">France</option>
+                 </select>
+                    <input id="city" height: type="text" required/>
+                    <input id="state" height: type="text" />
+                    <input id="zipcode" height: type="text" />
+                    <input id="phone" height: type="text" required/>
+
+                </div>
+            </div>
+            
+
+        </div>
+        <div class="addressBox2">
+            <div class="addressBoxHead">
+                <p>Shipping Address</p>
+            </div>
+            <div class= "bilingInputDiv">
+                <div class="bilingLabel increaseDivWidth">
+                    <label class = "topEle boldLabel">EMAIL</label> 
+                    <label  class = "boldLabel">First Name</label>
+                    <label  class = "boldLabel">Last Name</label> 
+                    <label>Company</label> 
+                    <label>Tax ID</label> 
+                    <label class = "boldLabel">Address Line 1</label>
+                    <label>Address Line 2</label>
+                    <label></label>
+                    <label class = "boldLabel">Country</label> 
+                    <label class = "boldLabel">City</label> 
+                    <label>State</label> 
+                    <label>Zip code</label> 
+                    <label class = "boldLabel">Phone #</label> 
+                </div>
+                <div class="bilingInput">
+                    <input class = "topEle" id="email2" height: type="text" />
+                    <input id="firstName2" height: type="text" />
+                    <input id="lastName2" height: type="text" />
+                    <input id="company2" height: type="text" />
+                    <input id="taxId2" height: type="text" />
+                    <input id="address12" height: type="text" />
+                    <input id="shipping_address22" height: type="text" />
+                    <p class = "interputer">(We cannot ship to PO box, APO or FPO addresses.)</p>
+                    <select class="form-select countrySelect" id = "country2" aria-label="Default select example">
+                            <option selected>Select Country</option>
+                            <option value="india">India</option>
+                            <option value="canada">Canada</option>
+                            <option value="china">China</option>
+                            <option value="japan">Japan</option>
+                            <option value="russia">Russia</option>
+                            <option value="france">France</option>
+                     </select>
+                    <input id="city2" height: type="text" />
+                    <input id="state2" height: type="text" />
+                    <input id="zipcode2" height: type="text" />
+                    <input id="phone2" height: type="text" />
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class = "paymentsItemInfo">
+        <div>
+
+        </div>
+        <div class = "methodShipping">
+            <div class="headShipping">
+                <p>Shipping Method</p>
+            </div>
+            <div class = "shippingInfo">
+                <!-- <form class = "shippingDiv1"> -->
+                   
+                    
+                <!-- </form> -->
+                <div class = "shippingDiv2">
+                     <div>
+                        <input type="radio" name = "shippingMethod" value="standard">
+                         <span><b>International Standard</b> - 11785.06 INR</span>
+                         <p class = "green">Estimated Delivery Date: 2022-01-05</p>
+                     </div>
+                     <div>
+                        <input type="radio" name = "shippingMethod" value="express">
+                        <span><b>International Express</b> - 14405.21 INR</span>
+                        <p class = "green">Estimated Delivery Date: 2021-12-31</p>
+                     </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+
+    <div class = "paymentUserDetails">
+        <div class = "payment_divHead">
+            <p>Payment Information</p>
+        </div>
+        <div class = "paymentDetails">
+            <div class = "imgDiv">
+                <img src = "https://e7.pngegg.com/pngimages/27/252/png-clipart-mastercard-visa-credit-card-paypal-logo-mastercard-text-display-advertising.png"/>
+            </div>
+            <div class = "cardInfo">
+                <div class="cardQuery">
+                    <p>Card Type</p>
+                    <p>Cardholder Name</p>
+                    <p class="expcvv_text">Expiry</p>
+                    <p class="expcvv_text2">CVV</p>
+                </div>
+                <div class="cardQueryResult">
+                    <select class="inputbox" name="card_type" id="card_type" required>
+                        <option value="">Select Card</option>
+                        <option value="Visa">Visa</option>
+                        <option value="RuPay">RuPay</option>
+                        <option value="MasterCard">MasterCard</option>
+                      </select>
+                    <input type="text" class="inputbox" name="name" id="name" required />
+                    <input type="date" class="inputbox" name="exp_date" id="exp_date" required />
+                    <input type="password" class="inputbox" name="cvv" id="cvv" required />
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+                <div id="t3">
+                    <input type="checkbox" />
+                    <span id="five">When you sign up for email, you'll get exclusive coupons, sale notifications, and product ideas.</span>
+                    <br />
+                    <br />
+                </div>
+                <p></p>
+                    <button type="submit" class="button">Place order >></button>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+   <!-- <div  class="paydown">
+    <h1>
+      
+        <span style=" color: rgb(12,12,12); font-size: 25px; font-weight: bold" > Customer Testimonials:</span>
+        
+    </h1>
+    <hr>
+</div>
+<div class="ukinline">
+<div  class = ukimage >
+
+    <img 
+    height="77px"
+    width="70px"
+    src=data:image/png;base64,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
+    />
+
+</div>
+<div >
+         
+        <h3>Catherine</h3>
+        <h3>Australia</h3>
+
+</div>
+</div>
+
+<div class= "ptag">
+<p>
+    "I received my item today and I am just emailing to say how pleased I am with your service. I am thrilled with the coat I ordered, a coat I cannot buy in Australia. The price was fair and I received the item within 10 days!" Thank you for excellent service."Christine
+</p>
+</div>
+
+<div class="candaline">
+    <div  class = "candaimage" >
+    
+        <img 
+        height="67px"
+        width="70px"
+        src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRokZpLAQZ4TnOZ6kmzqxYURhciBvNAa1GAd2Xr8ygiVbBZ8vsv
+        />
+    
+    </div>
+    <div  class="canadaline">
+             
+            <h4>Christine</h4>
+            <h4>Mississauga, ON</h4>
+    
+    </div>
+    <div class= "ptag">
+        <p>
+            "I'm very impressed by the level of dedication Overstock.com has for its customers."
+        </p>
+        </div>
+    </div>
+    
+ <div class="downtag">
+    View all customer testimonials-
+
+ </div>
+<div class ="downMenu"> 
+    <div class ="downMenu1">
+        Return Policy
+    </div>
+      <div class ="downMenu1">
+        Contact Customer Care
+    </div>
+
+    <div class ="downMenu1">
+            FAQ
+    </div>
+              
+    <div class ="downMenu1">
+                 Privacy Policy
+    
+    </div>
+                 
+    <div class ="downMenu1">
+                     Site User Term & condition
+ </div>
+              
+     
+</div>
+<div class="downmenu2">
+<hr> -->
+<div>
+    © 2021 Overstock.com All Rights Reserved
+</div>
+
+
+</div>
+
+
+
+
+
+</body>
+
+</html>
+
+<script src="./Script/checkout.js"></script>
