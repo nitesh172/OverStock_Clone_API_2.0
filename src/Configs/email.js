@@ -3,14 +3,14 @@ const { google } = require("googleapis")
 const OAuth2 = google.auth.OAuth2
 
 const oauth2Client = new OAuth2(
-  "280625541145-vm633gtro3p4ma9vta76je3gnmquk244.apps.googleusercontent.com",
-  "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", // Client Secret
+  "398020467191-b17c36sja5unuals3uev37vin56f7l6h.apps.googleusercontent.com",
+  "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", // Client Secret
   "https://developers.google.com/oauthplayground" // Redirect URL
 )
 
 oauth2Client.setCredentials({
   refresh_token:
-    "1//04w-XWmNFWJs1CgYIARAAGAQSNwF-L9IrZfpsgwTRpmV0_7vPx_jmf7pZJ2yUvpZEHI1x-yOcUt4SO5sJ9AAq9L9nT70kGkkw0Mo",
+    "1//04KcDBR-iaxyNCgYIARAAGAQSNwF-L9IrroGBXOuTmoxhRQO6fSrDbpB18fW7NVrqUMR1hklbzxNyNMiyrg5-kUorN6fLT4srloI",
 })
 
 const accessToken = oauth2Client.getAccessToken()
@@ -22,10 +22,10 @@ const transport = nodemailer.createTransport({
     type: "OAuth2",
     user: "outstockclone@gmail.com",
     clientId:
-      "280625541145-vm633gtro3p4ma9vta76je3gnmquk244.apps.googleusercontent.com",
-    clientSecret: "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",
+      "398020467191-b17c36sja5unuals3uev37vin56f7l6h.apps.googleusercontent.com",
+    clientSecret: "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",
     refreshToken:
-      "1//04w-XWmNFWJs1CgYIARAAGAQSNwF-L9IrZfpsgwTRpmV0_7vPx_jmf7pZJ2yUvpZEHI1x-yOcUt4SO5sJ9AAq9L9nT70kGkkw0Mo",
+      "1//04KcDBR-iaxyNCgYIARAAGAQSNwF-L9IrroGBXOuTmoxhRQO6fSrDbpB18fW7NVrqUMR1hklbzxNyNMiyrg5-kUorN6fLT4srloI",
     accessToken: accessToken,
   },
 })

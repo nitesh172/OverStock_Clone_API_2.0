@@ -10,8 +10,8 @@ passport.use(
   new GoogleStrategy(
     {
       clientID:
-        "280625541145-vm633gtro3p4ma9vta76je3gnmquk244.apps.googleusercontent.com",
-      clientSecret: "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",
+        "398020467191-b17c36sja5unuals3uev37vin56f7l6h.apps.googleusercontent.com",
+      clientSecret: "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",
       callbackURL: "https://overstock-2.herokuapp.com/auth/google/callback",
       passReqToCallback: true,
     },
