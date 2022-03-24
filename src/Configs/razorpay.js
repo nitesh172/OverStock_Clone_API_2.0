@@ -1,8 +1,9 @@
 const Razorpay = require("razorpay")
+require("dotenv").config()
 
 var instance = new Razorpay({
-  key_id: "rzp_test_kqeHDKDTMlfKMR",
-  key_secret: "iog7LygxcPPb0r0YZALE0mP6",
+  key_id: process.env.key_id,
+  key_secret: process.env.key_secret,
 })
 
 module.exports= instance

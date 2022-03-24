@@ -8,22 +8,15 @@ const redis = require("../Configs/redis")
 const emailCode = require("../Configs/emailCode")
 
 const newToken = (user) => {
-  return jwt.sign(
-    { user: user },
-    "gsfgsfgduskjghskjhgsduagseuiwahgwiesuytuiyshwtuwyuwhnfiow"
-  )
+  return jwt.sign({ user: user }, process.env.sign)
 }
 
 const verifyToken = (token) => {
   return new Promise((resolve, reject) => {
-    jwt.verify(
-      token,
-      "gsfgsfgduskjghskjhgsduagseuiwahgwiesuytuiyshwtuwyuwhnfiow",
-      function (err, decoded) {
-        if (err) return reject(err)
-        resolve(decoded)
-      }
-    )
+    jwt.verify(token, process.env.sign, function (err, decoded) {
+      if (err) return reject(err)
+      resolve(decoded)
+    })
   })
 }
 
@@ -45,7 +38,7 @@ const register = async (req, res) => {
     const url = `https://overstock-2.herokuapp.com/confrimation/${token}`
 
     const mailOptions = {
-      from: "outstockclone@gmail.com", // sender address
+      from: process.env.user, // sender address
       to: req.body.email, // list of receivers
       subject: "Confirm your gmail", // Subject line
       html: `${emailCode(url)}`, // plain text body

@@ -5,13 +5,13 @@ const FacebookStrategy = require("passport-facebook").Strategy
 const User = require("../Models/user.model")
 const { v4: uuidv4 } = require("uuid")
 const redis = require("./redis")
+require("dotenv").config()
 
 passport.use(
   new GoogleStrategy(
     {
-      clientID:
-        "398020467191-b17c36sja5unuals3uev37vin56f7l6h.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientID: process.env.clientID,
+      clientSecret: process.env.clientSecret,
       callbackURL: "https://overstock-2.herokuapp.com/auth/google/callback",
       passReqToCallback: true,
     },

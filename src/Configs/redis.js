@@ -1,7 +1,8 @@
 const redis = require("redis")
+require('dotenv').config()
 
 const client = redis.createClient({
-  url: "redis://:pb49d893ace8e1170760bb42906296033935cf5b3a318821179783b7aa4daf374@ec2-3-224-115-109.compute-1.amazonaws.com:9979",
+  url: process.env.REDIS_URL,
 })
 
 client.on("connect", (err) => {

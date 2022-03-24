@@ -1,9 +1,10 @@
 const mongoose = require("mongoose")
+require("dotenv").config()
 
 const connection = () => {
     return mongoose
       .connect(
-        "mongodb+srv://nitesh172:overstock12@cluster0.2pflp.mongodb.net/overstockapi"
+        process.env.db
       )
       .then(() => {
         console.log("Connected")
