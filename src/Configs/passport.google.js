@@ -10,7 +10,7 @@ require("dotenv").config()
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.clientID,
+      clientID: process.env.clientId,
       clientSecret: process.env.clientSecret,
       callbackURL: "https://overstock-2.herokuapp.com/auth/google/callback",
       passReqToCallback: true,
