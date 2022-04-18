@@ -20,7 +20,7 @@ const {
 const { uploadUser } = require("./Middlewares/multer")
 const instance = require("./Configs/razorpay")
 
-const passport = require("./Configs/passport.google")
+// const passport = require("./Configs/passport.google")
 const redis = require("./Configs/redis")
 
 const User = require("./Models/user.model")
@@ -95,45 +95,46 @@ app.get("/confrimation/:token", async (req, res) => {
   }
 })
 
-passport.serializeUser(function (user, done) {
-  done(null, user)
-})
 
-passport.deserializeUser(function (user, done) {
-  done(null, user)
-})
+// passport.serializeUser(function (user, done) {
+//   done(null, user)
+// })
 
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["email", "profile"] })
-)
+// passport.deserializeUser(function (user, done) {
+//   done(null, user)
+// })
 
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    successRedirect:
-      "https://overstockv2.netlify.app/checkout.html",
-    failureRedirect: "/auth/google/failure",
-  }),
-  (req, res) => {
-    res.status(201).send({ user: req.user?.user, token: req.user?.token })
-  }
-)
+// app.get(
+//   "/auth/google",
+//   passport.authenticate("google", { scope: ["email", "profile"] })
+// )
 
-app.get("/auth/google/failure", (req, res) => {
-  res.send("failure")
-})
+// app.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     successRedirect:
+//       "https://overstockv2.netlify.app/checkout.html",
+//     failureRedirect: "/auth/google/failure",
+//   }),
+//   (req, res) => {
+//     res.status(201).send({ user: req.user?.user, token: req.user?.token })
+//   }
+// )
 
-app.get("/auth/facebook", passport.authenticate("facebook"))
+// app.get("/auth/google/failure", (req, res) => {
+//   res.send("failure")
+// })
 
-app.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", { failureRedirect: "/login" }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/")
-  }
-)
+// app.get("/auth/facebook", passport.authenticate("facebook"))
+
+// app.get(
+//   "/auth/facebook/callback",
+//   passport.authenticate("facebook", { failureRedirect: "/login" }),
+//   function (req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect("/")
+//   }
+// )
 
 app.post("/razorpay", async (req, res) => {
   const amount = Number(req.body.amount)
